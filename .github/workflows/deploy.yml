@@ -32,9 +32,11 @@ jobs:
         with:
           version: 'latest'
       - name: List files in the repository
-        run: ls -R
+        run: |
+          pwd
+          ls -lrt 
+          ls -R
       - name: Deploy to Kubernetes
         run: |
-          kubectl apply -f ./ks8_deployment.yml
+          kubectl apply -f myapp/ks8_deployment.yml
           kubectl rollout status deployment myapp
-
