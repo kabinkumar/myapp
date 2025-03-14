@@ -1,0 +1,12 @@
+﻿{
+  "repositoryName": "kabinkumar/myapp",
+  "pipelineDirectory": "myapp",
+  "workspaceDirectory": "myapp/myapp",
+  "repositories": {
+    "kabinkumar/myapp": {
+      "repositoryPath": "myapp/myapp",
+      "lastRunOn": "03/14/2025 21:16:47 +05:30"
+    }
+  },
+  "lastRunOn": "03/14/2025 21:16:47 +05:30"
+}
