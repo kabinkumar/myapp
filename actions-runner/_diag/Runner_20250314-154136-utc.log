@@ -255,3 +255,49 @@
 [2025-03-14 15:56:06Z INFO JobNotification] Entering JobCompleted Notification
 [2025-03-14 15:56:06Z INFO JobNotification] Entering EndMonitor
 [2025-03-14 15:56:06Z INFO MessageListener] Received job status event. JobState: Online
+[2025-03-14 16:01:50Z INFO MessageListener] Message '4415027372455708130' received from session '82af5fd2-ed7a-485d-bbb0-94ae814fa6ab'.
+[2025-03-14 16:01:50Z INFO ConfigurationStore] HasCredentials()
+[2025-03-14 16:01:50Z INFO ConfigurationStore] stored True
+[2025-03-14 16:01:50Z INFO CredentialManager] GetCredentialProvider
+[2025-03-14 16:01:50Z INFO CredentialManager] Creating type OAuth
+[2025-03-14 16:01:50Z INFO CredentialManager] Creating credential type: OAuth
+[2025-03-14 16:01:50Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/kk/devopsprj/myapp/actions-runner/.credentials_rsaparams
+[2025-03-14 16:01:50Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/kk/devopsprj/myapp/actions-runner/.credentials_rsaparams
+[2025-03-14 16:01:50Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/kk/devopsprj/myapp/actions-runner/.credentials_rsaparams
+[2025-03-14 16:01:51Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2025-03-14 16:01:53Z INFO JobDispatcher] Job request 0 for plan 4664bde8-7521-4d29-a06f-8d9974fa7e6f job ec3da3ed-45aa-55fa-883e-138833f6cc83 received.
+[2025-03-14 16:01:53Z INFO MessageListener] Received job status event. JobState: Busy
+[2025-03-14 16:01:53Z INFO MessageListener] _getMessagesTokenSource is already disposed.
+[2025-03-14 16:01:53Z INFO JobDispatcher] Job request ce292ddf-6a19-5c8d-b0d9-0f2ca3c46c38 processed succeed.
+[2025-03-14 16:01:53Z INFO Terminal] WRITE LINE: 2025-03-14 16:01:53Z: Running job: deploy
+[2025-03-14 16:01:53Z INFO JobDispatcher] Start renew job request 0 for job ec3da3ed-45aa-55fa-883e-138833f6cc83.
+[2025-03-14 16:01:54Z INFO JobDispatcher] Successfully renew job ec3da3ed-45aa-55fa-883e-138833f6cc83, job is valid till 3/14/2025 4:11:54 PM
+[2025-03-14 16:01:54Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:01:54Z INFO ProcessInvokerWrapper] Starting process:
+[2025-03-14 16:01:54Z INFO ProcessInvokerWrapper]   File name: '/Users/kk/devopsprj/myapp/actions-runner/bin/Runner.Worker'
+[2025-03-14 16:01:54Z INFO ProcessInvokerWrapper]   Arguments: 'spawnclient 150 153'
+[2025-03-14 16:01:54Z INFO ProcessInvokerWrapper]   Working directory: '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:01:54Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-03-14 16:01:54Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-03-14 16:01:54Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'True'
+[2025-03-14 16:01:54Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-03-14 16:01:54Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2025-03-14 16:01:54Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-03-14 16:01:54Z INFO ProcessInvokerWrapper]   High priority process: 'True'
+[2025-03-14 16:01:54Z INFO ProcessInvokerWrapper] Process started with process id 16503, waiting for process exit.
+[2025-03-14 16:01:54Z INFO JobDispatcher] Send job request message to worker for job ec3da3ed-45aa-55fa-883e-138833f6cc83.
+[2025-03-14 16:01:54Z INFO ProcessChannel] Sending message of length 19911, with hash '15f073765bea850485c8736f91377ef7b7c864648508b9fe0c0a00d0e49c3853'
+[2025-03-14 16:01:54Z INFO JobNotification] Entering JobStarted Notification
+[2025-03-14 16:01:54Z INFO JobNotification] Entering StartMonitor
+[2025-03-14 16:02:54Z INFO JobDispatcher] Successfully renew job ec3da3ed-45aa-55fa-883e-138833f6cc83, job is valid till 3/14/2025 4:12:54 PM
+[2025-03-14 16:03:17Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:03:17Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:03:17Z INFO ProcessInvokerWrapper] Finished process 16503 with exit code 102, and elapsed time 00:01:22.8239335.
+[2025-03-14 16:03:17Z INFO JobDispatcher] Worker finished for job ec3da3ed-45aa-55fa-883e-138833f6cc83. Code: 102
+[2025-03-14 16:03:17Z INFO JobDispatcher] finish job request for job ec3da3ed-45aa-55fa-883e-138833f6cc83 with result: Failed
+[2025-03-14 16:03:17Z INFO Terminal] WRITE LINE: 2025-03-14 16:03:17Z: Job deploy completed with result: Failed
+[2025-03-14 16:03:17Z INFO JobDispatcher] Stop renew job request for job ec3da3ed-45aa-55fa-883e-138833f6cc83.
+[2025-03-14 16:03:17Z INFO JobDispatcher] job renew has been cancelled, stop renew job ec3da3ed-45aa-55fa-883e-138833f6cc83.
+[2025-03-14 16:03:17Z INFO JobNotification] Entering JobCompleted Notification
+[2025-03-14 16:03:17Z INFO JobNotification] Entering EndMonitor
+[2025-03-14 16:03:17Z INFO MessageListener] Received job status event. JobState: Online
