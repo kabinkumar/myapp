@@ -15,6 +15,9 @@ jobs:
         with:
           ref: master
 
+      - name: Set Up Docker BuildX
+        uses: docker/setup-buildx-action@v3
+
       - name: Check Current Branch
         run: git branch --show-current
       
@@ -43,12 +46,12 @@ jobs:
         uses: azure/setup-kubectl@v3
         with:
           version: 'latest'
-      - name: Create kubeconfig directory
-        run: mkdir -p $HOME/.kube
-      - name: Configure Kubeconfig
-        run: |
-          echo "${{ secrets.KUBECONFIG }}" | base64 --decode > $HOME/.kube/config
-          chmod 600 $HOME/.kube/config
+      # - name: Create kubeconfig directory
+      #   run: mkdir -p $HOME/.kube
+      # - name: Configure Kubeconfig
+      #   run: |
+      #     echo "${{ secrets.KUBECONFIG }}" | base64 --decode > $HOME/.kube/config
+      #     chmod 600 $HOME/.kube/config
       - name: Verify Kubeconfig
         run: |
           kubectl config view
@@ -57,3 +60,13 @@ jobs:
         run: |
           kubectl apply -f ks8_deployment.yml
           kubectl rollout status deployment myapp
+      - name: Wait for Deployment (Only if it Exists)
+        run: |
+          if kubectl get deployment myapp &> /dev/null; then
+            kubectl rollout status deployment myapp
+          else
+            echo "Deployment 'myapp' does not exist yet. Skipping rollout status."
+          fi
+
+      - name: Verify Deployment
+        run: kubectl get pods -o wide
