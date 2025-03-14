@@ -43,13 +43,13 @@ jobs:
         uses: azure/setup-kubectl@v3
         with:
           version: 'latest'
-      - name: Set up Kubeconfig
-        run: |
-          mkdir -p $HOME/.kube
-          echo "${{ secrets.KUBECONFIG }}" > $HOME/.kube/config
-          export KUBECONFIG=$HOME/.kube/config
-        env:
-          KUBECONFIG: ${{ secrets.KUBECONFIG }}
+      # - name: Set up Kubeconfig
+      #   run: |
+      #     mkdir -p $HOME/.kube
+      #     echo "${{ secrets.KUBECONFIG }}" > $HOME/.kube/config
+      #     export KUBECONFIG=$HOME/.kube/config
+      #   env:
+      #     KUBECONFIG: ${{ secrets.KUBECONFIG }}
           
       - name: List files in the repository
         run: |
