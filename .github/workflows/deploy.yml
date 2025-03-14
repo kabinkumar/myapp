@@ -43,20 +43,13 @@ jobs:
         uses: azure/setup-kubectl@v3
         with:
           version: 'latest'
-      # - name: Set up Kubeconfig
-      #   run: |
-      #     mkdir -p $HOME/.kube
-      #     echo "${{ secrets.KUBECONFIG }}" > $HOME/.kube/config
-      #     export KUBECONFIG=$HOME/.kube/config
-      #   env:
-      #     KUBECONFIG: ${{ secrets.KUBECONFIG }}
-          
-      - name: List files in the repository
+      - name: Configure Kubeconfig
         run: |
-          pwd
-          ls -lrt 
-          ls -R
+          echo "${{ secrets.KUBECONFIG }}" | base64 --decode > $HOME/.kube/config
+          chmod 600 $HOME/.kube/config
+
       - name: Deploy to Kubernetes
         run: |
-          kubectl apply -f ks8_deployment.yml --validate=false
+          kubectl apply -f k8s/deployment.yml
+          kubectl apply -f k8s/service.yml
           kubectl rollout status deployment myapp
