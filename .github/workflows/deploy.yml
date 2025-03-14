@@ -58,5 +58,5 @@ jobs:
           ls -R
       - name: Deploy to Kubernetes
         run: |
-          kubectl apply -f ks8_deployment.yml
+          kubectl apply -f ks8_deployment.yml --validate=false
           kubectl rollout status deployment myapp
