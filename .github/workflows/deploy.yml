@@ -33,7 +33,7 @@ jobs:
           docker push ${{ secrets.DOCKER_USERNAME }}/myapp:latest
 
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: build-and-push
     steps:
       - name: Checkout Repository

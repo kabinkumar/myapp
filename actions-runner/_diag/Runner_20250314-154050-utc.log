@@ -1,0 +1,221 @@
+[2025-03-14 15:40:50Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2025-03-14 15:40:50Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 15:40:50Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 15:40:50Z INFO HostContext] Well known config file 'Credentials': '/Users/kk/devopsprj/myapp/actions-runner/.credentials'
+[2025-03-14 15:40:50Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 15:40:50Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 15:40:50Z INFO HostContext] Well known config file 'Runner': '/Users/kk/devopsprj/myapp/actions-runner/.runner'
+[2025-03-14 15:40:50Z INFO Listener] Runner is built for OSX (Arm64) - osx-arm64.
+[2025-03-14 15:40:50Z INFO Listener] RuntimeInformation: Darwin 24.3.0 Darwin Kernel Version 24.3.0: Thu Jan  2 20:31:46 PST 2025; root:xnu-11215.81.4~4/RELEASE_ARM64_T8132.
+[2025-03-14 15:40:50Z INFO Listener] Version: 2.322.0
+[2025-03-14 15:40:50Z INFO Listener] Commit: 0edc478ca75d0a753dcbcec7405f3f26db67b1ac
+[2025-03-14 15:40:50Z INFO Listener] Culture: en-US
+[2025-03-14 15:40:50Z INFO Listener] UI Culture: en-US
+[2025-03-14 15:40:50Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 15:40:50Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 15:40:50Z INFO Listener] Validating directory permissions for: '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 15:40:50Z INFO CommandLineParser] Parse
+[2025-03-14 15:40:50Z INFO CommandLineParser] Parsing 5 args
+[2025-03-14 15:40:50Z INFO CommandLineParser] parsing argument
+[2025-03-14 15:40:50Z INFO CommandLineParser] HasArgs: False
+[2025-03-14 15:40:50Z INFO CommandLineParser] Adding Command: configure
+[2025-03-14 15:40:50Z INFO CommandLineParser] parsing argument
+[2025-03-14 15:40:50Z INFO CommandLineParser] HasArgs: True
+[2025-03-14 15:40:50Z INFO CommandLineParser] arg: url
+[2025-03-14 15:40:50Z INFO CommandLineParser] parsing argument
+[2025-03-14 15:40:50Z INFO CommandLineParser] HasArgs: True
+[2025-03-14 15:40:50Z INFO CommandLineParser] Adding option 'url': 'https://github.com/kabinkumar/myapp'
+[2025-03-14 15:40:50Z INFO CommandLineParser] parsing argument
+[2025-03-14 15:40:50Z INFO CommandLineParser] HasArgs: True
+[2025-03-14 15:40:50Z INFO CommandLineParser] arg: token
+[2025-03-14 15:40:50Z INFO CommandLineParser] parsing argument
+[2025-03-14 15:40:50Z INFO CommandLineParser] HasArgs: True
+[2025-03-14 15:40:50Z INFO CommandLineParser] Adding option 'token': '***'
+[2025-03-14 15:40:50Z INFO Listener] Arguments parsed
+[2025-03-14 15:40:50Z INFO Runner] ExecuteCommand
+[2025-03-14 15:40:50Z INFO ConfigurationStore] currentAssemblyLocation: /Users/kk/devopsprj/myapp/actions-runner/bin/Runner.Listener.dll
+[2025-03-14 15:40:50Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 15:40:50Z INFO ConfigurationStore] binPath: /Users/kk/devopsprj/myapp/actions-runner/bin
+[2025-03-14 15:40:50Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 15:40:50Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 15:40:50Z INFO ConfigurationStore] RootFolder: /Users/kk/devopsprj/myapp/actions-runner
+[2025-03-14 15:40:50Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 15:40:50Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 15:40:50Z INFO HostContext] Well known config file 'Runner': '/Users/kk/devopsprj/myapp/actions-runner/.runner'
+[2025-03-14 15:40:50Z INFO ConfigurationStore] ConfigFilePath: /Users/kk/devopsprj/myapp/actions-runner/.runner
+[2025-03-14 15:40:50Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 15:40:50Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 15:40:50Z INFO HostContext] Well known config file 'Credentials': '/Users/kk/devopsprj/myapp/actions-runner/.credentials'
+[2025-03-14 15:40:50Z INFO ConfigurationStore] CredFilePath: /Users/kk/devopsprj/myapp/actions-runner/.credentials
+[2025-03-14 15:40:50Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 15:40:50Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 15:40:50Z INFO HostContext] Well known config file 'MigratedCredentials': '/Users/kk/devopsprj/myapp/actions-runner/.credentials_migrated'
+[2025-03-14 15:40:50Z INFO ConfigurationStore] MigratedCredFilePath: /Users/kk/devopsprj/myapp/actions-runner/.credentials_migrated
+[2025-03-14 15:40:50Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 15:40:50Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 15:40:50Z INFO HostContext] Well known config file 'Service': '/Users/kk/devopsprj/myapp/actions-runner/.service'
+[2025-03-14 15:40:50Z INFO ConfigurationStore] ServiceConfigFilePath: /Users/kk/devopsprj/myapp/actions-runner/.service
+[2025-03-14 15:40:50Z INFO CommandSettings] Flag 'help': 'False'
+[2025-03-14 15:40:50Z INFO CommandSettings] Flag 'version': 'False'
+[2025-03-14 15:40:50Z INFO CommandSettings] Flag 'commit': 'False'
+[2025-03-14 15:40:50Z INFO CommandSettings] Flag 'check': 'False'
+[2025-03-14 15:40:50Z INFO CommandSettings] Command 'configure': 'True'
+[2025-03-14 15:40:50Z INFO Terminal] WRITE LINE: 
+[2025-03-14 15:40:50Z INFO Terminal] WRITE LINE: --------------------------------------------------------------------------------
+[2025-03-14 15:40:50Z INFO Terminal] WRITE LINE: |        ____ _ _   _   _       _          _        _   _                      |
+[2025-03-14 15:40:50Z INFO Terminal] WRITE LINE: |       / ___(_) |_| | | |_   _| |__      / \   ___| |_(_) ___  _ __  ___      |
+[2025-03-14 15:40:50Z INFO Terminal] WRITE LINE: |      | |  _| | __| |_| | | | | '_ \    / _ \ / __| __| |/ _ \| '_ \/ __|     |
+[2025-03-14 15:40:50Z INFO Terminal] WRITE LINE: |      | |_| | | |_|  _  | |_| | |_) |  / ___ \ (__| |_| | (_) | | | \__ \     |
+[2025-03-14 15:40:50Z INFO Terminal] WRITE LINE: |       \____|_|\__|_| |_|\__,_|_.__/  /_/   \_\___|\__|_|\___/|_| |_|___/     |
+[2025-03-14 15:40:50Z INFO Terminal] WRITE LINE: |                                                                              |
+[2025-03-14 15:40:50Z INFO Terminal] WRITE: |                       
+[2025-03-14 15:40:50Z INFO Terminal] WRITE: Self-hosted runner registration
+[2025-03-14 15:40:50Z INFO Terminal] WRITE LINE:                         |
+[2025-03-14 15:40:50Z INFO Terminal] WRITE LINE: |                                                                              |
+[2025-03-14 15:40:50Z INFO Terminal] WRITE LINE: --------------------------------------------------------------------------------
+[2025-03-14 15:40:50Z INFO ConfigurationManager] ConfigureAsync
+[2025-03-14 15:40:50Z INFO CommandSettings] Flag 'generateServiceConfig': 'False'
+[2025-03-14 15:40:50Z INFO ConfigurationStore] IsConfigured()
+[2025-03-14 15:40:50Z INFO ConfigurationStore] IsConfigured: False
+[2025-03-14 15:40:50Z INFO ConfigurationManager] Is configured: False
+[2025-03-14 15:40:50Z INFO CommandSettings] Arg 'url': 'https://github.com/kabinkumar/myapp'
+[2025-03-14 15:40:50Z INFO CommandSettings] Remove url from Arg dictionary.
+[2025-03-14 15:40:50Z INFO CommandSettings] Arg 'token': '***'
+[2025-03-14 15:40:50Z INFO CommandSettings] Remove token from Arg dictionary.
+[2025-03-14 15:40:51Z INFO ConfigurationManager] Http response code: OK from 'POST https://api.github.com/actions/runner-registration' (CE42:CB8BB:3FED67:576956:67D44E02)
+[2025-03-14 15:40:51Z INFO ConfigurationManager] Using V2 flow: False
+[2025-03-14 15:40:51Z INFO ConfigurationManager] cred retrieved via GitHub auth
+[2025-03-14 15:40:51Z INFO RunnerServer] EstablishVssConnection
+[2025-03-14 15:40:51Z INFO RunnerServer] Establish connection with 100 seconds timeout.
+[2025-03-14 15:40:51Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2025-03-14 15:40:51Z INFO RunnerServer] EstablishVssConnection
+[2025-03-14 15:40:51Z INFO RunnerServer] Establish connection with 60 seconds timeout.
+[2025-03-14 15:40:51Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2025-03-14 15:40:51Z INFO RunnerServer] EstablishVssConnection
+[2025-03-14 15:40:51Z INFO RunnerServer] Establish connection with 60 seconds timeout.
+[2025-03-14 15:40:51Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2025-03-14 15:40:53Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2025-03-14 15:40:53Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2025-03-14 15:40:53Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2025-03-14 15:40:53Z INFO Terminal] WRITE LINE: 
+[2025-03-14 15:40:53Z INFO ConfigurationManager] Test Connection complete.
+[2025-03-14 15:40:53Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 15:40:53Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 15:40:53Z INFO HostContext] Well known config file 'RSACredentials': '/Users/kk/devopsprj/myapp/actions-runner/.credentials_rsaparams'
+[2025-03-14 15:40:53Z INFO RSAFileKeyManager] Creating new RSA key using 2048-bit key length
+[2025-03-14 15:40:53Z INFO RSAFileKeyManager] Successfully saved RSA key parameters to file /Users/kk/devopsprj/myapp/actions-runner/.credentials_rsaparams
+[2025-03-14 15:40:53Z INFO RSAFileKeyManager] Which2: 'chmod'
+[2025-03-14 15:40:53Z INFO RSAFileKeyManager] Location: '/bin/chmod'
+[2025-03-14 15:40:53Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 15:40:53Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 15:40:53Z INFO ProcessInvokerWrapper] Starting process:
+[2025-03-14 15:40:53Z INFO ProcessInvokerWrapper]   File name: '/bin/chmod'
+[2025-03-14 15:40:53Z INFO ProcessInvokerWrapper]   Arguments: '600 /Users/kk/devopsprj/myapp/actions-runner/.credentials_rsaparams'
+[2025-03-14 15:40:53Z INFO ProcessInvokerWrapper]   Working directory: '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 15:40:53Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-03-14 15:40:53Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-03-14 15:40:53Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-03-14 15:40:53Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-03-14 15:40:53Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2025-03-14 15:40:53Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-03-14 15:40:53Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-03-14 15:40:53Z INFO ProcessInvokerWrapper] Process started with process id 15127, waiting for process exit.
+[2025-03-14 15:40:53Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 15:40:53Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 15:40:53Z INFO ProcessInvokerWrapper] Finished process 15127 with exit code 0, and elapsed time 00:00:00.0265477.
+[2025-03-14 15:40:53Z INFO RSAFileKeyManager] Successfully set permissions for RSA key parameters file /Users/kk/devopsprj/myapp/actions-runner/.credentials_rsaparams
+[2025-03-14 15:40:54Z INFO CommandSettings] Arg 'runnergroup': ''
+[2025-03-14 15:40:54Z INFO CommandSettings] Flag 'unattended': 'False'
+[2025-03-14 15:40:54Z INFO PromptManager] ReadValue
+[2025-03-14 15:40:54Z INFO Terminal] WRITE: Enter the name of the runner group to add this runner to: 
+[2025-03-14 15:40:54Z INFO Terminal] WRITE: [press Enter for Default] 
+[2025-03-14 15:40:54Z INFO Terminal] READ LINE
+[2025-03-14 15:41:00Z INFO Terminal] Read value: ''
+[2025-03-14 15:41:00Z INFO PromptManager] Falling back to the default: 'Default'
+[2025-03-14 15:41:00Z INFO Terminal] WRITE LINE: 
+[2025-03-14 15:41:00Z INFO ConfigurationManager] Found a self-hosted runner group with id 1 and name Default
+[2025-03-14 15:41:00Z INFO CommandSettings] Flag 'disableupdate': 'False'
+[2025-03-14 15:41:00Z INFO CommandSettings] Flag 'ephemeral': 'False'
+[2025-03-14 15:41:00Z INFO CommandSettings] Arg 'name': ''
+[2025-03-14 15:41:00Z INFO CommandSettings] Flag 'unattended': 'False'
+[2025-03-14 15:41:00Z INFO PromptManager] ReadValue
+[2025-03-14 15:41:00Z INFO Terminal] WRITE: Enter the name of runner: 
+[2025-03-14 15:41:00Z INFO Terminal] WRITE: [press Enter for Mac] 
+[2025-03-14 15:41:00Z INFO Terminal] READ LINE
+[2025-03-14 15:41:03Z INFO Terminal] Read value: ''
+[2025-03-14 15:41:03Z INFO PromptManager] Falling back to the default: 'Mac'
+[2025-03-14 15:41:03Z INFO Terminal] WRITE LINE: 
+[2025-03-14 15:41:03Z INFO CommandSettings] Arg 'labels': ''
+[2025-03-14 15:41:03Z INFO CommandSettings] Flag 'unattended': 'False'
+[2025-03-14 15:41:03Z INFO PromptManager] ReadValue
+[2025-03-14 15:41:03Z INFO Terminal] WRITE: This runner will have the following labels: 'self-hosted', 'macOS', 'ARM64' 
+Enter any additional labels (ex. label-1,label-2): 
+[2025-03-14 15:41:03Z INFO Terminal] WRITE: [press Enter to skip] 
+[2025-03-14 15:41:03Z INFO Terminal] READ LINE
+[2025-03-14 15:41:08Z INFO Terminal] Read value: ''
+[2025-03-14 15:41:08Z INFO Terminal] WRITE LINE: 
+[2025-03-14 15:41:08Z INFO CommandSettings] Flag 'disableupdate': 'False'
+[2025-03-14 15:41:08Z INFO CommandSettings] Flag 'no-default-labels': 'False'
+[2025-03-14 15:41:08Z INFO CommandSettings] Flag 'disableupdate': 'False'
+[2025-03-14 15:41:08Z INFO CommandSettings] Flag 'ephemeral': 'False'
+[2025-03-14 15:41:08Z INFO ConfigurationStore] Saving OAuth credential @ /Users/kk/devopsprj/myapp/actions-runner/.credentials
+[2025-03-14 15:41:08Z INFO ConfigurationStore] Credentials Saved.
+[2025-03-14 15:41:08Z INFO ConfigurationStore] HasCredentials()
+[2025-03-14 15:41:08Z INFO ConfigurationStore] stored True
+[2025-03-14 15:41:08Z INFO CredentialManager] GetCredentialProvider
+[2025-03-14 15:41:08Z INFO CredentialManager] Creating type OAuth
+[2025-03-14 15:41:08Z INFO CredentialManager] Creating credential type: OAuth
+[2025-03-14 15:41:08Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/kk/devopsprj/myapp/actions-runner/.credentials_rsaparams
+[2025-03-14 15:41:08Z INFO RunnerServer] EstablishVssConnection
+[2025-03-14 15:41:08Z INFO RunnerServer] Establish connection with 100 seconds timeout.
+[2025-03-14 15:41:08Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2025-03-14 15:41:08Z INFO RunnerServer] EstablishVssConnection
+[2025-03-14 15:41:08Z INFO RunnerServer] Establish connection with 60 seconds timeout.
+[2025-03-14 15:41:08Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2025-03-14 15:41:08Z INFO RunnerServer] EstablishVssConnection
+[2025-03-14 15:41:08Z INFO RunnerServer] Establish connection with 60 seconds timeout.
+[2025-03-14 15:41:08Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2025-03-14 15:41:10Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2025-03-14 15:41:10Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2025-03-14 15:41:10Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2025-03-14 15:41:10Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/kk/devopsprj/myapp/actions-runner/.credentials_rsaparams
+[2025-03-14 15:41:10Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/kk/devopsprj/myapp/actions-runner/.credentials_rsaparams
+[2025-03-14 15:41:13Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2025-03-14 15:41:13Z WARN GitHubActionsService] Retrieving an AAD auth token took a long time (2.7685028 seconds)
+[2025-03-14 15:41:13Z INFO CommandSettings] Arg 'work': ''
+[2025-03-14 15:41:13Z INFO CommandSettings] Flag 'unattended': 'False'
+[2025-03-14 15:41:13Z INFO PromptManager] ReadValue
+[2025-03-14 15:41:13Z INFO Terminal] WRITE: Enter name of work folder: 
+[2025-03-14 15:41:13Z INFO Terminal] WRITE: [press Enter for _work] 
+[2025-03-14 15:41:13Z INFO Terminal] READ LINE
+[2025-03-14 15:41:18Z INFO Terminal] Read value: ''
+[2025-03-14 15:41:18Z INFO PromptManager] Falling back to the default: '_work'
+[2025-03-14 15:41:18Z INFO ConfigurationStore] Saving runner settings.
+[2025-03-14 15:41:18Z INFO ConfigurationStore] Settings Saved.
+[2025-03-14 15:41:18Z INFO Terminal] WRITE LINE: 
+[2025-03-14 15:41:18Z INFO Terminal] WRITE LINE: 
+[2025-03-14 15:41:18Z INFO OsxServiceControlManager] Service name 'actions.runner.kabinkumar-myapp.Mac' display name 'GitHub Actions Runner (kabinkumar-myapp.Mac)' will be used for service configuration.
+[2025-03-14 15:41:18Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 15:41:18Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 15:41:18Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 15:41:18Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 15:41:18Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 15:41:18Z INFO UnixUtil] Which2: 'chmod'
+[2025-03-14 15:41:18Z INFO UnixUtil] Location: '/bin/chmod'
+[2025-03-14 15:41:18Z INFO UnixUtil] Running /bin/chmod 755 "/Users/kk/devopsprj/myapp/actions-runner/svc.sh"
+[2025-03-14 15:41:18Z INFO ProcessInvokerWrapper] Starting process:
+[2025-03-14 15:41:18Z INFO ProcessInvokerWrapper]   File name: '/bin/chmod'
+[2025-03-14 15:41:18Z INFO ProcessInvokerWrapper]   Arguments: '755 "/Users/kk/devopsprj/myapp/actions-runner/svc.sh"'
+[2025-03-14 15:41:18Z INFO ProcessInvokerWrapper]   Working directory: '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 15:41:18Z INFO ProcessInvokerWrapper]   Require exit code zero: 'True'
+[2025-03-14 15:41:18Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-03-14 15:41:18Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-03-14 15:41:18Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-03-14 15:41:18Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2025-03-14 15:41:18Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-03-14 15:41:18Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-03-14 15:41:18Z INFO ProcessInvokerWrapper] Process started with process id 15130, waiting for process exit.
+[2025-03-14 15:41:18Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 15:41:18Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 15:41:18Z INFO ProcessInvokerWrapper] Finished process 15130 with exit code 0, and elapsed time 00:00:00.0326225.
+[2025-03-14 15:41:18Z INFO Listener] Runner execution has finished with return code 0
