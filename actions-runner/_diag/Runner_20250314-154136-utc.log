@@ -301,3 +301,99 @@
 [2025-03-14 16:03:17Z INFO JobNotification] Entering JobCompleted Notification
 [2025-03-14 16:03:17Z INFO JobNotification] Entering EndMonitor
 [2025-03-14 16:03:17Z INFO MessageListener] Received job status event. JobState: Online
+[2025-03-14 16:11:53Z INFO MessageListener] Message '2762843400658826858' received from session '82af5fd2-ed7a-485d-bbb0-94ae814fa6ab'.
+[2025-03-14 16:11:53Z INFO ConfigurationStore] HasCredentials()
+[2025-03-14 16:11:53Z INFO ConfigurationStore] stored True
+[2025-03-14 16:11:53Z INFO CredentialManager] GetCredentialProvider
+[2025-03-14 16:11:53Z INFO CredentialManager] Creating type OAuth
+[2025-03-14 16:11:53Z INFO CredentialManager] Creating credential type: OAuth
+[2025-03-14 16:11:53Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/kk/devopsprj/myapp/actions-runner/.credentials_rsaparams
+[2025-03-14 16:11:53Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/kk/devopsprj/myapp/actions-runner/.credentials_rsaparams
+[2025-03-14 16:11:53Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/kk/devopsprj/myapp/actions-runner/.credentials_rsaparams
+[2025-03-14 16:11:55Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2025-03-14 16:11:55Z WARN GitHubActionsService] Retrieving an AAD auth token took a long time (2.1106284 seconds)
+[2025-03-14 16:11:58Z INFO JobDispatcher] Job request 0 for plan b67c9a9f-de65-451a-8f26-2d8c3ebb0610 job bfa73004-e538-5d3f-9fe0-af1afeebb78a received.
+[2025-03-14 16:11:58Z INFO MessageListener] Received job status event. JobState: Busy
+[2025-03-14 16:11:58Z INFO MessageListener] _getMessagesTokenSource is already disposed.
+[2025-03-14 16:11:58Z INFO JobDispatcher] Job request ec3da3ed-45aa-55fa-883e-138833f6cc83 processed succeed.
+[2025-03-14 16:11:58Z INFO Terminal] WRITE LINE: 2025-03-14 16:11:58Z: Running job: deploy
+[2025-03-14 16:11:58Z INFO JobDispatcher] Start renew job request 0 for job bfa73004-e538-5d3f-9fe0-af1afeebb78a.
+[2025-03-14 16:11:59Z INFO JobDispatcher] Successfully renew job bfa73004-e538-5d3f-9fe0-af1afeebb78a, job is valid till 3/14/2025 4:21:59 PM
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:11:59Z INFO ProcessInvokerWrapper] Starting process:
+[2025-03-14 16:11:59Z INFO ProcessInvokerWrapper]   File name: '/Users/kk/devopsprj/myapp/actions-runner/bin/Runner.Worker'
+[2025-03-14 16:11:59Z INFO ProcessInvokerWrapper]   Arguments: 'spawnclient 150 153'
+[2025-03-14 16:11:59Z INFO ProcessInvokerWrapper]   Working directory: '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:11:59Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-03-14 16:11:59Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-03-14 16:11:59Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'True'
+[2025-03-14 16:11:59Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-03-14 16:11:59Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2025-03-14 16:11:59Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-03-14 16:11:59Z INFO ProcessInvokerWrapper]   High priority process: 'True'
+[2025-03-14 16:11:59Z INFO ProcessInvokerWrapper] Process started with process id 17225, waiting for process exit.
+[2025-03-14 16:11:59Z INFO JobDispatcher] Send job request message to worker for job bfa73004-e538-5d3f-9fe0-af1afeebb78a.
+[2025-03-14 16:11:59Z INFO ProcessChannel] Sending message of length 19186, with hash '4a142d6cb772abb76e60dade295431d4232b554deb8374e1d7990030c9d2d958'
+[2025-03-14 16:11:59Z INFO JobNotification] Entering JobStarted Notification
+[2025-03-14 16:11:59Z INFO JobNotification] Entering StartMonitor
+[2025-03-14 16:12:59Z INFO JobDispatcher] Successfully renew job bfa73004-e538-5d3f-9fe0-af1afeebb78a, job is valid till 3/14/2025 4:22:59 PM
+[2025-03-14 16:13:45Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:45Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:45Z INFO ProcessInvokerWrapper] Finished process 17225 with exit code 100, and elapsed time 00:01:45.8310943.
+[2025-03-14 16:13:45Z INFO JobDispatcher] Worker finished for job bfa73004-e538-5d3f-9fe0-af1afeebb78a. Code: 100
+[2025-03-14 16:13:45Z INFO JobDispatcher] finish job request for job bfa73004-e538-5d3f-9fe0-af1afeebb78a with result: Succeeded
+[2025-03-14 16:13:45Z INFO Terminal] WRITE LINE: 2025-03-14 16:13:45Z: Job deploy completed with result: Succeeded
+[2025-03-14 16:13:45Z INFO JobDispatcher] Stop renew job request for job bfa73004-e538-5d3f-9fe0-af1afeebb78a.
+[2025-03-14 16:13:45Z INFO JobDispatcher] job renew has been cancelled, stop renew job bfa73004-e538-5d3f-9fe0-af1afeebb78a.
+[2025-03-14 16:13:45Z INFO JobNotification] Entering JobCompleted Notification
+[2025-03-14 16:13:45Z INFO JobNotification] Entering EndMonitor
+[2025-03-14 16:13:45Z INFO MessageListener] Received job status event. JobState: Online
+[2025-03-14 16:19:53Z INFO MessageListener] Message '610920563197685470' received from session '82af5fd2-ed7a-485d-bbb0-94ae814fa6ab'.
+[2025-03-14 16:19:53Z INFO ConfigurationStore] HasCredentials()
+[2025-03-14 16:19:53Z INFO ConfigurationStore] stored True
+[2025-03-14 16:19:53Z INFO CredentialManager] GetCredentialProvider
+[2025-03-14 16:19:53Z INFO CredentialManager] Creating type OAuth
+[2025-03-14 16:19:53Z INFO CredentialManager] Creating credential type: OAuth
+[2025-03-14 16:19:53Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/kk/devopsprj/myapp/actions-runner/.credentials_rsaparams
+[2025-03-14 16:19:53Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/kk/devopsprj/myapp/actions-runner/.credentials_rsaparams
+[2025-03-14 16:19:53Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/kk/devopsprj/myapp/actions-runner/.credentials_rsaparams
+[2025-03-14 16:19:54Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2025-03-14 16:19:56Z INFO JobDispatcher] Job request 0 for plan d84d7934-76c1-41c1-9d69-585720243797 job 9dd89fb6-5e11-59df-96e3-4d36d903a8d5 received.
+[2025-03-14 16:19:56Z INFO MessageListener] Received job status event. JobState: Busy
+[2025-03-14 16:19:56Z INFO MessageListener] _getMessagesTokenSource is already disposed.
+[2025-03-14 16:19:56Z INFO JobDispatcher] Job request bfa73004-e538-5d3f-9fe0-af1afeebb78a processed succeed.
+[2025-03-14 16:19:56Z INFO Terminal] WRITE LINE: 2025-03-14 16:19:56Z: Running job: deploy
+[2025-03-14 16:19:56Z INFO JobDispatcher] Start renew job request 0 for job 9dd89fb6-5e11-59df-96e3-4d36d903a8d5.
+[2025-03-14 16:19:57Z INFO JobDispatcher] Successfully renew job 9dd89fb6-5e11-59df-96e3-4d36d903a8d5, job is valid till 3/14/2025 4:29:57 PM
+[2025-03-14 16:19:57Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:19:57Z INFO ProcessInvokerWrapper] Starting process:
+[2025-03-14 16:19:57Z INFO ProcessInvokerWrapper]   File name: '/Users/kk/devopsprj/myapp/actions-runner/bin/Runner.Worker'
+[2025-03-14 16:19:57Z INFO ProcessInvokerWrapper]   Arguments: 'spawnclient 150 153'
+[2025-03-14 16:19:57Z INFO ProcessInvokerWrapper]   Working directory: '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:19:57Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-03-14 16:19:57Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-03-14 16:19:57Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'True'
+[2025-03-14 16:19:57Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-03-14 16:19:57Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2025-03-14 16:19:57Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-03-14 16:19:57Z INFO ProcessInvokerWrapper]   High priority process: 'True'
+[2025-03-14 16:19:57Z INFO ProcessInvokerWrapper] Process started with process id 17622, waiting for process exit.
+[2025-03-14 16:19:57Z INFO JobDispatcher] Send job request message to worker for job 9dd89fb6-5e11-59df-96e3-4d36d903a8d5.
+[2025-03-14 16:19:57Z INFO ProcessChannel] Sending message of length 19186, with hash '0e1519706d9820c40161f9586c34f2f757664176d4be8f948b4d7a7e110f650e'
+[2025-03-14 16:19:57Z INFO JobNotification] Entering JobStarted Notification
+[2025-03-14 16:19:57Z INFO JobNotification] Entering StartMonitor
+[2025-03-14 16:20:57Z INFO JobDispatcher] Successfully renew job 9dd89fb6-5e11-59df-96e3-4d36d903a8d5, job is valid till 3/14/2025 4:30:57 PM
+[2025-03-14 16:21:36Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:21:36Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:21:36Z INFO ProcessInvokerWrapper] Finished process 17622 with exit code 100, and elapsed time 00:01:39.8613609.
+[2025-03-14 16:21:36Z INFO JobDispatcher] Worker finished for job 9dd89fb6-5e11-59df-96e3-4d36d903a8d5. Code: 100
+[2025-03-14 16:21:36Z INFO JobDispatcher] finish job request for job 9dd89fb6-5e11-59df-96e3-4d36d903a8d5 with result: Succeeded
+[2025-03-14 16:21:36Z INFO Terminal] WRITE LINE: 2025-03-14 16:21:36Z: Job deploy completed with result: Succeeded
+[2025-03-14 16:21:36Z INFO JobDispatcher] Stop renew job request for job 9dd89fb6-5e11-59df-96e3-4d36d903a8d5.
+[2025-03-14 16:21:36Z INFO JobDispatcher] job renew has been cancelled, stop renew job 9dd89fb6-5e11-59df-96e3-4d36d903a8d5.
+[2025-03-14 16:21:36Z INFO JobNotification] Entering JobCompleted Notification
+[2025-03-14 16:21:36Z INFO JobNotification] Entering EndMonitor
+[2025-03-14 16:21:36Z INFO MessageListener] Received job status event. JobState: Online
+[2025-03-14 16:31:47Z INFO RSAFileKeyManager] Loading RSA key parameters from file /Users/kk/devopsprj/myapp/actions-runner/.credentials_rsaparams
+[2025-03-14 16:31:49Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2025-03-14 16:31:49Z WARN GitHubActionsService] Retrieving an AAD auth token took a long time (2.3520279 seconds)

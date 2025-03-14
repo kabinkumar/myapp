@@ -1,0 +1,3947 @@
+[2025-03-14 16:11:59Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:11:59Z INFO HostContext] Well known config file 'Credentials': '/Users/kk/devopsprj/myapp/actions-runner/.credentials'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:11:59Z INFO HostContext] Well known config file 'Runner': '/Users/kk/devopsprj/myapp/actions-runner/.runner'
+[2025-03-14 16:11:59Z INFO Worker] Version: 2.322.0
+[2025-03-14 16:11:59Z INFO Worker] Commit: 0edc478ca75d0a753dcbcec7405f3f26db67b1ac
+[2025-03-14 16:11:59Z INFO Worker] Culture: en-US
+[2025-03-14 16:11:59Z INFO Worker] UI Culture: en-US
+[2025-03-14 16:11:59Z INFO Worker] Waiting to receive the job message from the channel.
+[2025-03-14 16:11:59Z INFO ProcessChannel] Receiving message of length 19186, with hash '4a142d6cb772abb76e60dade295431d4232b554deb8374e1d7990030c9d2d958'
+[2025-03-14 16:11:59Z INFO Worker] Message received.
+[2025-03-14 16:11:59Z INFO Worker] Job message:
+ {
+  "fileTable": [
+    ".github/workflows/deploy.yml"
+  ],
+  "mask": [
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    }
+  ],
+  "steps": [
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "actions/checkout",
+        "ref": "v4",
+        "repositoryType": "GitHub"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 42,
+        "col": 15,
+        "lit": "Checkout Repository"
+      },
+      "contextName": "__actions_checkout",
+      "condition": "success()",
+      "id": "d62f5f72-dfaa-47ad-8d18-1f20d6a41c3c",
+      "name": "__actions_checkout"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "azure/setup-kubectl",
+        "ref": "v3",
+        "repositoryType": "GitHub"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 45,
+        "col": 15,
+        "lit": "Set up Kubectl"
+      },
+      "contextName": "__azure_setup-kubectl",
+      "inputs": {
+        "type": 2,
+        "file": 1,
+        "line": 48,
+        "col": 11,
+        "map": [
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 48,
+              "col": 11,
+              "lit": "version"
+            },
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 48,
+              "col": 20,
+              "lit": "latest"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "4b6e619d-cf2d-42a5-930e-62509984f347",
+      "name": "__azure_setup-kubectl"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 55,
+        "col": 15,
+        "lit": "Verify Kubeconfig"
+      },
+      "contextName": "__run",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 56,
+              "col": 14,
+              "lit": "kubectl config view\nkubectl get nodes\n"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "1455acb4-c037-417c-974a-2b32789d31d3",
+      "name": "__run"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 59,
+        "col": 15,
+        "lit": "Deploy to Kubernetes"
+      },
+      "contextName": "__run_2",
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 60,
+              "col": 14,
+              "lit": "kubectl apply -f ks8_deployment.yml\necho \"Waiting for deployment to be created...\"\nsleep 30  # Give Kubernetes time to create the deployment\nkubectl get deployments\nkubectl rollout status deployment myapp || echo \"Deployment might still be initializing...\""
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "f40cf2fe-f890-4964-a9ed-25c9d216d7aa",
+      "name": "__run_2"
+    }
+  ],
+  "variables": {
+    "Actions.EnableHttpRedirects": {
+      "value": "true"
+    },
+    "DistributedTask.AddWarningToNode12Action": {
+      "value": "true"
+    },
+    "DistributedTask.AddWarningToNode16Action": {
+      "value": "true"
+    },
+    "DistributedTask.AllowRunnerContainerHooks": {
+      "value": "true"
+    },
+    "DistributedTask.DeprecateStepOutputCommands": {
+      "value": "true"
+    },
+    "DistributedTask.DetailUntarFailure": {
+      "value": "true"
+    },
+    "DistributedTask.EnableCompositeActions": {
+      "value": "true"
+    },
+    "DistributedTask.EnableJobServerQueueTelemetry": {
+      "value": "true"
+    },
+    "DistributedTask.EnhancedAnnotations": {
+      "value": "true"
+    },
+    "DistributedTask.ForceGithubJavascriptActionsToNode16": {
+      "value": "true"
+    },
+    "DistributedTask.ForceGithubJavascriptActionsToNode20": {
+      "value": "true"
+    },
+    "DistributedTask.LogTemplateErrorsAsDebugMessages": {
+      "value": "true"
+    },
+    "DistributedTask.MarkJobAsFailedOnWorkerCrash": {
+      "value": "true"
+    },
+    "DistributedTask.NewActionMetadata": {
+      "value": "true"
+    },
+    "DistributedTask.UploadStepSummary": {
+      "value": "true"
+    },
+    "DistributedTask.UseActionArchiveCache": {
+      "value": "true"
+    },
+    "DistributedTask.UseWhich2": {
+      "value": "true"
+    },
+    "RunService.FixEmbeddedIssues": {
+      "value": "true"
+    },
+    "actions_skip_retry_complete_job_upon_known_errors": {
+      "value": "false"
+    },
+    "actions_uses_cache_service_v2": {
+      "value": "true"
+    },
+    "github_token": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.from_run_service": {
+      "value": "true"
+    },
+    "system.github.job": {
+      "value": "deploy"
+    },
+    "system.github.launch_endpoint": {
+      "value": "https://launch.actions.githubusercontent.com"
+    },
+    "system.github.results_endpoint": {
+      "value": "https://results-receiver.actions.githubusercontent.com/"
+    },
+    "system.github.results_upload_with_sdk": {
+      "value": "true"
+    },
+    "system.github.token": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.github.token.permissions": {
+      "value": "{\"Contents\":\"read\",\"Metadata\":\"read\",\"Packages\":\"read\"}"
+    },
+    "system.orchestrationId": {
+      "value": "b67c9a9f-de65-451a-8f26-2d8c3ebb0610.deploy.__default"
+    },
+    "system.phaseDisplayName": {
+      "value": "deploy"
+    },
+    "system.runner.lowdiskspacethreshold": {
+      "value": "100"
+    },
+    "system.runnerEnvironment": {
+      "value": "self-hosted"
+    }
+  },
+  "messageType": "RunnerJobRequest",
+  "plan": {
+    "scopeIdentifier": "00000000-0000-0000-0000-000000000000",
+    "planType": "actions",
+    "version": 0,
+    "planId": "b67c9a9f-de65-451a-8f26-2d8c3ebb0610",
+    "planGroup": null,
+    "artifactUri": null,
+    "artifactLocation": null,
+    "definition": null,
+    "owner": null
+  },
+  "timeline": {
+    "id": "b67c9a9f-de65-451a-8f26-2d8c3ebb0610",
+    "changeId": 0,
+    "location": null
+  },
+  "jobId": "bfa73004-e538-5d3f-9fe0-af1afeebb78a",
+  "jobDisplayName": "deploy",
+  "jobName": "__default",
+  "requestId": 0,
+  "lockedUntil": "0001-01-01T00:00:00",
+  "resources": {
+    "endpoints": [
+      {
+        "data": {
+          "ServerId": "",
+          "ServerName": "",
+          "CacheServerUrl": "https://acghubeus2.actions.githubusercontent.com/EkTdjta8nS28Ms9S630XtsubsHshPTitAuN8ffIeVlkULdLq5o/",
+          "FeedStreamUrl": "wss://results-receiver.actions.githubusercontent.com/_ws/ingest.sock",
+          "ResultsServiceUrl": "https://results-receiver.actions.githubusercontent.com/",
+          "PipelinesServiceUrl": "https://pipelinesghubeus15.actions.githubusercontent.com/EkTdjta8nS28Ms9S630XtsubsHshPTitAuN8ffIeVlkULdLq5o/",
+          "GenerateIdTokenUrl": ""
+        },
+        "name": "SystemVssConnection",
+        "url": "https://run-actions-2-azure-eastus.actions.githubusercontent.com/11/",
+        "authorization": {
+          "parameters": {
+            "AccessToken": "***"
+          },
+          "scheme": "OAuth"
+        },
+        "isShared": false,
+        "isReady": true
+      }
+    ]
+  },
+  "contextData": {
+    "github": {
+      "t": 2,
+      "d": [
+        {
+          "k": "ref",
+          "v": "refs/heads/master"
+        },
+        {
+          "k": "sha",
+          "v": "7f4cc9884d15c6cdbc70f195e13e5518faddb09b"
+        },
+        {
+          "k": "repository",
+          "v": "kabinkumar/myapp"
+        },
+        {
+          "k": "repository_owner",
+          "v": "kabinkumar"
+        },
+        {
+          "k": "repository_owner_id",
+          "v": "43044211"
+        },
+        {
+          "k": "repositoryUrl",
+          "v": "git://github.com/kabinkumar/myapp.git"
+        },
+        {
+          "k": "run_id",
+          "v": "13860707391"
+        },
+        {
+          "k": "run_number",
+          "v": "15"
+        },
+        {
+          "k": "retention_days",
+          "v": "90"
+        },
+        {
+          "k": "run_attempt",
+          "v": "1"
+        },
+        {
+          "k": "artifact_cache_size_limit",
+          "v": "10"
+        },
+        {
+          "k": "repository_visibility",
+          "v": "public"
+        },
+        {
+          "k": "actor_id",
+          "v": "43044211"
+        },
+        {
+          "k": "actor",
+          "v": "kabinkumar"
+        },
+        {
+          "k": "workflow",
+          "v": "CI/CD Pipeline"
+        },
+        {
+          "k": "head_ref",
+          "v": ""
+        },
+        {
+          "k": "base_ref",
+          "v": ""
+        },
+        {
+          "k": "event_name",
+          "v": "push"
+        },
+        {
+          "k": "server_url",
+          "v": "https://github.com"
+        },
+        {
+          "k": "api_url",
+          "v": "https://api.github.com"
+        },
+        {
+          "k": "graphql_url",
+          "v": "https://api.github.com/graphql"
+        },
+        {
+          "k": "ref_name",
+          "v": "master"
+        },
+        {
+          "k": "ref_protected",
+          "v": false
+        },
+        {
+          "k": "ref_type",
+          "v": "branch"
+        },
+        {
+          "k": "secret_source",
+          "v": "Actions"
+        },
+        {
+          "k": "event",
+          "v": {
+            "t": 2,
+            "d": [
+              {
+                "k": "after",
+                "v": "7f4cc9884d15c6cdbc70f195e13e5518faddb09b"
+              },
+              {
+                "k": "base_ref",
+                "v": null
+              },
+              {
+                "k": "before",
+                "v": "b57c409cdda28c3a9c929a59d257178815fc18d2"
+              },
+              {
+                "k": "commits",
+                "v": {
+                  "t": 1,
+                  "a": [
+                    {
+                      "t": 2,
+                      "d": [
+                        {
+                          "k": "author",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "kk@Mac.lan"
+                              },
+                              {
+                                "k": "name",
+                                "v": "kabin kumar"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "committer",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "kk@Mac.lan"
+                              },
+                              {
+                                "k": "name",
+                                "v": "kabin kumar"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "distinct",
+                          "v": true
+                        },
+                        {
+                          "k": "id",
+                          "v": "7f4cc9884d15c6cdbc70f195e13e5518faddb09b"
+                        },
+                        {
+                          "k": "message",
+                          "v": "Added Kubernetes deployment YAML"
+                        },
+                        {
+                          "k": "timestamp",
+                          "v": "2025-03-14T21:40:57+05:30"
+                        },
+                        {
+                          "k": "tree_id",
+                          "v": "5147d351021563be519eee0f8db1a8c798d9430f"
+                        },
+                        {
+                          "k": "url",
+                          "v": "https://github.com/kabinkumar/myapp/commit/7f4cc9884d15c6cdbc70f195e13e5518faddb09b"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "compare",
+                "v": "https://github.com/kabinkumar/myapp/compare/b57c409cdda2...7f4cc9884d15"
+              },
+              {
+                "k": "created",
+                "v": false
+              },
+              {
+                "k": "deleted",
+                "v": false
+              },
+              {
+                "k": "forced",
+                "v": false
+              },
+              {
+                "k": "head_commit",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "author",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "kk@Mac.lan"
+                          },
+                          {
+                            "k": "name",
+                            "v": "kabin kumar"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "committer",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "kk@Mac.lan"
+                          },
+                          {
+                            "k": "name",
+                            "v": "kabin kumar"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "distinct",
+                      "v": true
+                    },
+                    {
+                      "k": "id",
+                      "v": "7f4cc9884d15c6cdbc70f195e13e5518faddb09b"
+                    },
+                    {
+                      "k": "message",
+                      "v": "Added Kubernetes deployment YAML"
+                    },
+                    {
+                      "k": "timestamp",
+                      "v": "2025-03-14T21:40:57+05:30"
+                    },
+                    {
+                      "k": "tree_id",
+                      "v": "5147d351021563be519eee0f8db1a8c798d9430f"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://github.com/kabinkumar/myapp/commit/7f4cc9884d15c6cdbc70f195e13e5518faddb09b"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "pusher",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "email",
+                      "v": "43044211+kabinkumar@users.noreply.github.com"
+                    },
+                    {
+                      "k": "name",
+                      "v": "kabinkumar"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "ref",
+                "v": "refs/heads/master"
+              },
+              {
+                "k": "repository",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "allow_forking",
+                      "v": true
+                    },
+                    {
+                      "k": "archive_url",
+                      "v": "https://api.github.com/repos/kabinkumar/myapp/{archive_format}{/ref}"
+                    },
+                    {
+                      "k": "archived",
+                      "v": false
+                    },
+                    {
+                      "k": "assignees_url",
+                      "v": "https://api.github.com/repos/kabinkumar/myapp/assignees{/user}"
+                    },
+                    {
+                      "k": "blobs_url",
+                      "v": "https://api.github.com/repos/kabinkumar/myapp/git/blobs{/sha}"
+                    },
+                    {
+                      "k": "branches_url",
+                      "v": "https://api.github.com/repos/kabinkumar/myapp/branches{/branch}"
+                    },
+                    {
+                      "k": "clone_url",
+                      "v": "https://github.com/kabinkumar/myapp.git"
+                    },
+                    {
+                      "k": "collaborators_url",
+                      "v": "https://api.github.com/repos/kabinkumar/myapp/collaborators{/collaborator}"
+                    },
+                    {
+                      "k": "comments_url",
+                      "v": "https://api.github.com/repos/kabinkumar/myapp/comments{/number}"
+                    },
+                    {
+                      "k": "commits_url",
+                      "v": "https://api.github.com/repos/kabinkumar/myapp/commits{/sha}"
+                    },
+                    {
+                      "k": "compare_url",
+                      "v": "https://api.github.com/repos/kabinkumar/myapp/compare/{base}...{head}"
+                    },
+                    {
+                      "k": "contents_url",
+                      "v": "https://api.github.com/repos/kabinkumar/myapp/contents/{+path}"
+                    },
+                    {
+                      "k": "contributors_url",
+                      "v": "https://api.github.com/repos/kabinkumar/myapp/contributors"
+                    },
+                    {
+                      "k": "created_at",
+                      "v": 1741962201.0
+                    },
+                    {
+                      "k": "default_branch",
+                      "v": "master"
+                    },
+                    {
+                      "k": "deployments_url",
+                      "v": "https://api.github.com/repos/kabinkumar/myapp/deployments"
+                    },
+                    {
+                      "k": "description",
+                      "v": "devsecops setup"
+                    },
+                    {
+                      "k": "disabled",
+                      "v": false
+                    },
+                    {
+                      "k": "downloads_url",
+                      "v": "https://api.github.com/repos/kabinkumar/myapp/downloads"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/repos/kabinkumar/myapp/events"
+                    },
+                    {
+                      "k": "fork",
+                      "v": false
+                    },
+                    {
+                      "k": "forks",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_url",
+                      "v": "https://api.github.com/repos/kabinkumar/myapp/forks"
+                    },
+                    {
+                      "k": "full_name",
+                      "v": "kabinkumar/myapp"
+                    },
+                    {
+                      "k": "git_commits_url",
+                      "v": "https://api.github.com/repos/kabinkumar/myapp/git/commits{/sha}"
+                    },
+                    {
+                      "k": "git_refs_url",
+                      "v": "https://api.github.com/repos/kabinkumar/myapp/git/refs{/sha}"
+                    },
+                    {
+                      "k": "git_tags_url",
+                      "v": "https://api.github.com/repos/kabinkumar/myapp/git/tags{/sha}"
+                    },
+                    {
+                      "k": "git_url",
+                      "v": "git://github.com/kabinkumar/myapp.git"
+                    },
+                    {
+                      "k": "has_discussions",
+                      "v": false
+                    },
+                    {
+                      "k": "has_downloads",
+                      "v": true
+                    },
+                    {
+                      "k": "has_issues",
+                      "v": true
+                    },
+                    {
+                      "k": "has_pages",
+                      "v": false
+                    },
+                    {
+                      "k": "has_projects",
+                      "v": true
+                    },
+                    {
+                      "k": "has_wiki",
+                      "v": true
+                    },
+                    {
+                      "k": "homepage",
+                      "v": null
+                    },
+                    {
+                      "k": "hooks_url",
+                      "v": "https://api.github.com/repos/kabinkumar/myapp/hooks"
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/kabinkumar/myapp"
+                    },
+                    {
+                      "k": "id",
+                      "v": 948545098.0
+                    },
+                    {
+                      "k": "is_template",
+                      "v": false
+                    },
+                    {
+                      "k": "issue_comment_url",
+                      "v": "https://api.github.com/repos/kabinkumar/myapp/issues/comments{/number}"
+                    },
+                    {
+                      "k": "issue_events_url",
+                      "v": "https://api.github.com/repos/kabinkumar/myapp/issues/events{/number}"
+                    },
+                    {
+                      "k": "issues_url",
+                      "v": "https://api.github.com/repos/kabinkumar/myapp/issues{/number}"
+                    },
+                    {
+                      "k": "keys_url",
+                      "v": "https://api.github.com/repos/kabinkumar/myapp/keys{/key_id}"
+                    },
+                    {
+                      "k": "labels_url",
+                      "v": "https://api.github.com/repos/kabinkumar/myapp/labels{/name}"
+                    },
+                    {
+                      "k": "language",
+                      "v": "JavaScript"
+                    },
+                    {
+                      "k": "languages_url",
+                      "v": "https://api.github.com/repos/kabinkumar/myapp/languages"
+                    },
+                    {
+                      "k": "license",
+                      "v": null
+                    },
+                    {
+                      "k": "master_branch",
+                      "v": "master"
+                    },
+                    {
+                      "k": "merges_url",
+                      "v": "https://api.github.com/repos/kabinkumar/myapp/merges"
+                    },
+                    {
+                      "k": "milestones_url",
+                      "v": "https://api.github.com/repos/kabinkumar/myapp/milestones{/number}"
+                    },
+                    {
+                      "k": "mirror_url",
+                      "v": null
+                    },
+                    {
+                      "k": "name",
+                      "v": "myapp"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "R_kgDOOImmSg"
+                    },
+                    {
+                      "k": "notifications_url",
+                      "v": "https://api.github.com/repos/kabinkumar/myapp/notifications{?since,all,participating}"
+                    },
+                    {
+                      "k": "open_issues",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "open_issues_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "owner",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "avatar_url",
+                            "v": "https://avatars.githubusercontent.com/u/43044211?v=4"
+                          },
+                          {
+                            "k": "email",
+                            "v": "43044211+kabinkumar@users.noreply.github.com"
+                          },
+                          {
+                            "k": "events_url",
+                            "v": "https://api.github.com/users/kabinkumar/events{/privacy}"
+                          },
+                          {
+                            "k": "followers_url",
+                            "v": "https://api.github.com/users/kabinkumar/followers"
+                          },
+                          {
+                            "k": "following_url",
+                            "v": "https://api.github.com/users/kabinkumar/following{/other_user}"
+                          },
+                          {
+                            "k": "gists_url",
+                            "v": "https://api.github.com/users/kabinkumar/gists{/gist_id}"
+                          },
+                          {
+                            "k": "gravatar_id",
+                            "v": ""
+                          },
+                          {
+                            "k": "html_url",
+                            "v": "https://github.com/kabinkumar"
+                          },
+                          {
+                            "k": "id",
+                            "v": 43044211.0
+                          },
+                          {
+                            "k": "login",
+                            "v": "kabinkumar"
+                          },
+                          {
+                            "k": "name",
+                            "v": "kabinkumar"
+                          },
+                          {
+                            "k": "node_id",
+                            "v": "MDQ6VXNlcjQzMDQ0MjEx"
+                          },
+                          {
+                            "k": "organizations_url",
+                            "v": "https://api.github.com/users/kabinkumar/orgs"
+                          },
+                          {
+                            "k": "received_events_url",
+                            "v": "https://api.github.com/users/kabinkumar/received_events"
+                          },
+                          {
+                            "k": "repos_url",
+                            "v": "https://api.github.com/users/kabinkumar/repos"
+                          },
+                          {
+                            "k": "site_admin",
+                            "v": false
+                          },
+                          {
+                            "k": "starred_url",
+                            "v": "https://api.github.com/users/kabinkumar/starred{/owner}{/repo}"
+                          },
+                          {
+                            "k": "subscriptions_url",
+                            "v": "https://api.github.com/users/kabinkumar/subscriptions"
+                          },
+                          {
+                            "k": "type",
+                            "v": "User"
+                          },
+                          {
+                            "k": "url",
+                            "v": "https://api.github.com/users/kabinkumar"
+                          },
+                          {
+                            "k": "user_view_type",
+                            "v": "public"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "private",
+                      "v": false
+                    },
+                    {
+                      "k": "pulls_url",
+                      "v": "https://api.github.com/repos/kabinkumar/myapp/pulls{/number}"
+                    },
+                    {
+                      "k": "pushed_at",
+                      "v": 1741968662.0
+                    },
+                    {
+                      "k": "releases_url",
+                      "v": "https://api.github.com/repos/kabinkumar/myapp/releases{/id}"
+                    },
+                    {
+                      "k": "size",
+                      "v": 15930.0
+                    },
+                    {
+                      "k": "ssh_url",
+                      "v": "git@github.com:kabinkumar/myapp.git"
+                    },
+                    {
+                      "k": "stargazers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_url",
+                      "v": "https://api.github.com/repos/kabinkumar/myapp/stargazers"
+                    },
+                    {
+                      "k": "statuses_url",
+                      "v": "https://api.github.com/repos/kabinkumar/myapp/statuses/{sha}"
+                    },
+                    {
+                      "k": "subscribers_url",
+                      "v": "https://api.github.com/repos/kabinkumar/myapp/subscribers"
+                    },
+                    {
+                      "k": "subscription_url",
+                      "v": "https://api.github.com/repos/kabinkumar/myapp/subscription"
+                    },
+                    {
+                      "k": "svn_url",
+                      "v": "https://github.com/kabinkumar/myapp"
+                    },
+                    {
+                      "k": "tags_url",
+                      "v": "https://api.github.com/repos/kabinkumar/myapp/tags"
+                    },
+                    {
+                      "k": "teams_url",
+                      "v": "https://api.github.com/repos/kabinkumar/myapp/teams"
+                    },
+                    {
+                      "k": "topics",
+                      "v": {
+                        "t": 1
+                      }
+                    },
+                    {
+                      "k": "trees_url",
+                      "v": "https://api.github.com/repos/kabinkumar/myapp/git/trees{/sha}"
+                    },
+                    {
+                      "k": "updated_at",
+                      "v": "2025-03-14T16:00:51Z"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://github.com/kabinkumar/myapp"
+                    },
+                    {
+                      "k": "visibility",
+                      "v": "public"
+                    },
+                    {
+                      "k": "watchers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "watchers_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "web_commit_signoff_required",
+                      "v": false
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "sender",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "avatar_url",
+                      "v": "https://avatars.githubusercontent.com/u/43044211?v=4"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/users/kabinkumar/events{/privacy}"
+                    },
+                    {
+                      "k": "followers_url",
+                      "v": "https://api.github.com/users/kabinkumar/followers"
+                    },
+                    {
+                      "k": "following_url",
+                      "v": "https://api.github.com/users/kabinkumar/following{/other_user}"
+                    },
+                    {
+                      "k": "gists_url",
+                      "v": "https://api.github.com/users/kabinkumar/gists{/gist_id}"
+                    },
+                    {
+                      "k": "gravatar_id",
+                      "v": ""
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/kabinkumar"
+                    },
+                    {
+                      "k": "id",
+                      "v": 43044211.0
+                    },
+                    {
+                      "k": "login",
+                      "v": "kabinkumar"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "MDQ6VXNlcjQzMDQ0MjEx"
+                    },
+                    {
+                      "k": "organizations_url",
+                      "v": "https://api.github.com/users/kabinkumar/orgs"
+                    },
+                    {
+                      "k": "received_events_url",
+                      "v": "https://api.github.com/users/kabinkumar/received_events"
+                    },
+                    {
+                      "k": "repos_url",
+                      "v": "https://api.github.com/users/kabinkumar/repos"
+                    },
+                    {
+                      "k": "site_admin",
+                      "v": false
+                    },
+                    {
+                      "k": "starred_url",
+                      "v": "https://api.github.com/users/kabinkumar/starred{/owner}{/repo}"
+                    },
+                    {
+                      "k": "subscriptions_url",
+                      "v": "https://api.github.com/users/kabinkumar/subscriptions"
+                    },
+                    {
+                      "k": "type",
+                      "v": "User"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://api.github.com/users/kabinkumar"
+                    },
+                    {
+                      "k": "user_view_type",
+                      "v": "public"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "k": "workflow_ref",
+          "v": "kabinkumar/myapp/.github/workflows/deploy.yml@refs/heads/master"
+        },
+        {
+          "k": "workflow_sha",
+          "v": "7f4cc9884d15c6cdbc70f195e13e5518faddb09b"
+        },
+        {
+          "k": "repository_id",
+          "v": "948545098"
+        },
+        {
+          "k": "triggering_actor",
+          "v": "kabinkumar"
+        }
+      ]
+    },
+    "inputs": {
+      "t": 2
+    },
+    "matrix": null,
+    "needs": {
+      "t": 2,
+      "d": [
+        {
+          "k": "build-and-push",
+          "v": {
+            "t": 2,
+            "d": [
+              {
+                "k": "result",
+                "v": "success"
+              },
+              {
+                "k": "outputs",
+                "v": {
+                  "t": 2
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "strategy": {
+      "t": 2,
+      "d": [
+        {
+          "k": "fail-fast",
+          "v": true
+        },
+        {
+          "k": "job-index",
+          "v": 0.0
+        },
+        {
+          "k": "job-total",
+          "v": 1.0
+        },
+        {
+          "k": "max-parallel",
+          "v": 1.0
+        }
+      ]
+    },
+    "vars": {
+      "t": 2
+    }
+  }
+}
+[2025-03-14 16:11:59Z INFO JobRunner] Job ID bfa73004-e538-5d3f-9fe0-af1afeebb78a
+[2025-03-14 16:11:59Z INFO ConfigurationStore] currentAssemblyLocation: /Users/kk/devopsprj/myapp/actions-runner/bin/Runner.Worker.dll
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:11:59Z INFO ConfigurationStore] binPath: /Users/kk/devopsprj/myapp/actions-runner/bin
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:11:59Z INFO ConfigurationStore] RootFolder: /Users/kk/devopsprj/myapp/actions-runner
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:11:59Z INFO HostContext] Well known config file 'Runner': '/Users/kk/devopsprj/myapp/actions-runner/.runner'
+[2025-03-14 16:11:59Z INFO ConfigurationStore] ConfigFilePath: /Users/kk/devopsprj/myapp/actions-runner/.runner
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:11:59Z INFO HostContext] Well known config file 'Credentials': '/Users/kk/devopsprj/myapp/actions-runner/.credentials'
+[2025-03-14 16:11:59Z INFO ConfigurationStore] CredFilePath: /Users/kk/devopsprj/myapp/actions-runner/.credentials
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:11:59Z INFO HostContext] Well known config file 'MigratedCredentials': '/Users/kk/devopsprj/myapp/actions-runner/.credentials_migrated'
+[2025-03-14 16:11:59Z INFO ConfigurationStore] MigratedCredFilePath: /Users/kk/devopsprj/myapp/actions-runner/.credentials_migrated
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:11:59Z INFO HostContext] Well known config file 'Service': '/Users/kk/devopsprj/myapp/actions-runner/.service'
+[2025-03-14 16:11:59Z INFO ConfigurationStore] ServiceConfigFilePath: /Users/kk/devopsprj/myapp/actions-runner/.service
+[2025-03-14 16:11:59Z INFO ConfigurationStore] Read setting file: 286 chars
+[2025-03-14 16:11:59Z INFO JobRunner] Initializing launch client
+[2025-03-14 16:11:59Z INFO JobServerQueue] Initializing results client
+[2025-03-14 16:11:59Z INFO ResultServer] Creating websocket client ...wss://results-receiver.actions.githubusercontent.com/_ws/ingest.sock
+[2025-03-14 16:11:59Z INFO ResultServer] Attempting to start websocket client with delay 00:00:00.
+[2025-03-14 16:11:59Z INFO JobServerQueue] Start process web console line queue.
+[2025-03-14 16:11:59Z INFO JobServerQueue] Start process file upload queue.
+[2025-03-14 16:11:59Z INFO JobServerQueue] Start results file upload queue.
+[2025-03-14 16:11:59Z INFO JobServerQueue] Starting results-based upload queue...
+[2025-03-14 16:11:59Z INFO JobServerQueue] Start process timeline update queue.
+[2025-03-14 16:11:59Z INFO ExecutionContext] Initialize GitHub context
+[2025-03-14 16:11:59Z INFO ExecutionContext] Initialize Env context
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Diag': '/Users/kk/devopsprj/myapp/actions-runner/_diag'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Diag': '/Users/kk/devopsprj/myapp/actions-runner/_diag'
+[2025-03-14 16:11:59Z INFO JobRunner] Starting the job execution context.
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:11:59Z INFO JobRunner] Validating directory permissions for: '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Tools': '/Users/kk/devopsprj/myapp/actions-runner/_work/_tool'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Temp': '/Users/kk/devopsprj/myapp/actions-runner/_work/_temp'
+[2025-03-14 16:11:59Z INFO JobRunner] Getting job extension.
+[2025-03-14 16:11:59Z INFO JobRunner] Initialize job. Getting all job steps.
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Diag': '/Users/kk/devopsprj/myapp/actions-runner/_diag'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Diag': '/Users/kk/devopsprj/myapp/actions-runner/_diag'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:11:59Z INFO HostContext] Well known config file 'Credentials': '/Users/kk/devopsprj/myapp/actions-runner/.credentials'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:11:59Z INFO HostContext] Well known config file 'SetupInfo': '/Users/kk/devopsprj/myapp/actions-runner/.setup_info'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:11:59Z INFO PipelineDirectoryManager] Loading tracking config if exists: /Users/kk/devopsprj/myapp/actions-runner/_work/_PipelineMapping/kabinkumar/myapp/PipelineFolder.json
+[2025-03-14 16:11:59Z INFO PipelineDirectoryManager] Updating job run properties.
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:11:59Z INFO JobExtension] Downloading actions
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:11:59Z INFO HostContext] Well known directory 'Actions': '/Users/kk/devopsprj/myapp/actions-runner/_work/_actions'
+[2025-03-14 16:11:59Z INFO Worker] Listening for cancel message from the channel.
+[2025-03-14 16:11:59Z INFO Worker] Waiting for the job to complete or for a cancel message from the channel.
+[2025-03-14 16:12:00Z INFO ResultServer] Successfully started websocket client.
+[2025-03-14 16:12:00Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9fa76ca2-b6ab-41dc-8349-76bc59c4bcf1', success rate: 1/1.
+[2025-03-14 16:12:01Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:12:01Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:12:01Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:12:01Z INFO HostContext] Well known directory 'Actions': '/Users/kk/devopsprj/myapp/actions-runner/_work/_actions'
+[2025-03-14 16:12:01Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:12:01Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:12:01Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:12:01Z INFO HostContext] Well known directory 'Actions': '/Users/kk/devopsprj/myapp/actions-runner/_work/_actions'
+[2025-03-14 16:12:01Z INFO ActionManager] Save archive 'https://api.github.com/repos/actions/checkout/tarball/11bd71901bbe5b1630ceea73d27597364c9af683' into /Users/kk/devopsprj/myapp/actions-runner/_work/_actions/_temp_6d477827-1c04-4ed8-a6cc-86dc45200a2f/cb66306e-dab3-4910-a473-9e68134ecd0d.tar.gz.
+[2025-03-14 16:12:01Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9fa76ca2-b6ab-41dc-8349-76bc59c4bcf1', success rate: 1/1.
+[2025-03-14 16:12:01Z INFO JobServerQueue] Job timeline record has been updated for the first time.
+[2025-03-14 16:12:03Z INFO ActionManager] Request URL: https://api.github.com/repos/actions/checkout/tarball/11bd71901bbe5b1630ceea73d27597364c9af683 X-GitHub-Request-Id: D007:5FE10:2E13A:177C5E:67D45551 Http Status: OK
+[2025-03-14 16:12:03Z INFO ActionManager] Which2: 'tar'
+[2025-03-14 16:12:03Z INFO ActionManager] Location: '/usr/bin/tar'
+[2025-03-14 16:12:03Z INFO ProcessInvokerWrapper] Starting process:
+[2025-03-14 16:12:03Z INFO ProcessInvokerWrapper]   File name: '/usr/bin/tar'
+[2025-03-14 16:12:03Z INFO ProcessInvokerWrapper]   Arguments: '-xzf "/Users/kk/devopsprj/myapp/actions-runner/_work/_actions/_temp_6d477827-1c04-4ed8-a6cc-86dc45200a2f/cb66306e-dab3-4910-a473-9e68134ecd0d.tar.gz"'
+[2025-03-14 16:12:03Z INFO ProcessInvokerWrapper]   Working directory: '/Users/kk/devopsprj/myapp/actions-runner/_work/_actions/_temp_6d477827-1c04-4ed8-a6cc-86dc45200a2f/_staging'
+[2025-03-14 16:12:03Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-03-14 16:12:03Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-03-14 16:12:03Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-03-14 16:12:03Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-03-14 16:12:03Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2025-03-14 16:12:03Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-03-14 16:12:03Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-03-14 16:12:03Z INFO ProcessInvokerWrapper] Process started with process id 17231, waiting for process exit.
+[2025-03-14 16:12:03Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:12:03Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:12:03Z INFO ProcessInvokerWrapper] Finished process 17231 with exit code 0, and elapsed time 00:00:00.0633261.
+[2025-03-14 16:12:03Z INFO ActionManager] Finished getting action repository.
+[2025-03-14 16:12:03Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:12:03Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:12:03Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:12:03Z INFO HostContext] Well known directory 'Actions': '/Users/kk/devopsprj/myapp/actions-runner/_work/_actions'
+[2025-03-14 16:12:03Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:12:03Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:12:03Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:12:03Z INFO HostContext] Well known directory 'Actions': '/Users/kk/devopsprj/myapp/actions-runner/_work/_actions'
+[2025-03-14 16:12:03Z INFO ActionManager] Save archive 'https://api.github.com/repos/Azure/setup-kubectl/tarball/901a10e89ea615cf61f57ac05cecdf23e7de06d8' into /Users/kk/devopsprj/myapp/actions-runner/_work/_actions/_temp_82dc437e-748d-4430-8e15-67209495d1f0/982793eb-3739-418b-9947-56deb1741c35.tar.gz.
+[2025-03-14 16:12:03Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9fa76ca2-b6ab-41dc-8349-76bc59c4bcf1', success rate: 1/1.
+[2025-03-14 16:12:04Z INFO ActionManager] Request URL: https://api.github.com/repos/Azure/setup-kubectl/tarball/901a10e89ea615cf61f57ac05cecdf23e7de06d8 X-GitHub-Request-Id: D009:08F0:ACB5:89318:67D45553 Http Status: OK
+[2025-03-14 16:12:04Z INFO ActionManager] Which2: 'tar'
+[2025-03-14 16:12:04Z INFO ActionManager] Location: '/usr/bin/tar'
+[2025-03-14 16:12:04Z INFO ProcessInvokerWrapper] Starting process:
+[2025-03-14 16:12:04Z INFO ProcessInvokerWrapper]   File name: '/usr/bin/tar'
+[2025-03-14 16:12:04Z INFO ProcessInvokerWrapper]   Arguments: '-xzf "/Users/kk/devopsprj/myapp/actions-runner/_work/_actions/_temp_82dc437e-748d-4430-8e15-67209495d1f0/982793eb-3739-418b-9947-56deb1741c35.tar.gz"'
+[2025-03-14 16:12:04Z INFO ProcessInvokerWrapper]   Working directory: '/Users/kk/devopsprj/myapp/actions-runner/_work/_actions/_temp_82dc437e-748d-4430-8e15-67209495d1f0/_staging'
+[2025-03-14 16:12:04Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-03-14 16:12:04Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-03-14 16:12:04Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-03-14 16:12:04Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-03-14 16:12:04Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2025-03-14 16:12:04Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-03-14 16:12:04Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-03-14 16:12:04Z INFO ProcessInvokerWrapper] Process started with process id 17243, waiting for process exit.
+[2025-03-14 16:12:04Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:12:04Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:12:04Z INFO ProcessInvokerWrapper] Finished process 17243 with exit code 0, and elapsed time 00:00:00.0815903.
+[2025-03-14 16:12:04Z INFO ActionManager] Finished getting action repository.
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Actions': '/Users/kk/devopsprj/myapp/actions-runner/_work/_actions'
+[2025-03-14 16:12:04Z INFO ActionManifestManager] Load schema file with definitions: [
+  "null",
+  "boolean",
+  "number",
+  "string",
+  "sequence",
+  "mapping",
+  "any",
+  "action-root",
+  "inputs",
+  "input",
+  "outputs",
+  "output-definition",
+  "runs",
+  "container-runs",
+  "container-runs-args",
+  "container-runs-env",
+  "node-runs",
+  "plugin-runs",
+  "composite-runs",
+  "composite-steps",
+  "composite-step",
+  "run-step",
+  "uses-step",
+  "container-runs-context",
+  "output-value",
+  "input-default-context",
+  "non-empty-string",
+  "string-steps-context",
+  "boolean-steps-context",
+  "step-env",
+  "step-if",
+  "step-with"
+]
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Actions': '/Users/kk/devopsprj/myapp/actions-runner/_work/_actions'
+[2025-03-14 16:12:04Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "ssh-user"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 14,
+          "lit": "git"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 52,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 54,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 57,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 3,
+          "lit": "filter"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 69,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 76,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 77,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 79,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 80,
+          "col": 3,
+          "lit": "show-progress"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 94,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 95,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 97,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 98,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2025-03-14 16:12:04Z INFO ActionManager] Action node.js file: dist/index.js, no more preparation.
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Actions': '/Users/kk/devopsprj/myapp/actions-runner/_work/_actions'
+[2025-03-14 16:12:04Z INFO ActionManager] Load action that reference repository from '/Users/kk/devopsprj/myapp/actions-runner/_work/_actions/actions/checkout/v4'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Actions': '/Users/kk/devopsprj/myapp/actions-runner/_work/_actions'
+[2025-03-14 16:12:04Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "ssh-user"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 14,
+          "lit": "git"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 52,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 54,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 57,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 3,
+          "lit": "filter"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 69,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 76,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 77,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 79,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 80,
+          "col": 3,
+          "lit": "show-progress"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 94,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 95,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 97,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 98,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2025-03-14 16:12:04Z INFO ActionManager] Action pre node.js file: N/A.
+[2025-03-14 16:12:04Z INFO ActionManager] Action node.js file: dist/index.js.
+[2025-03-14 16:12:04Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Actions': '/Users/kk/devopsprj/myapp/actions-runner/_work/_actions'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Actions': '/Users/kk/devopsprj/myapp/actions-runner/_work/_actions'
+[2025-03-14 16:12:04Z INFO ActionManifestManager] Ignore action property branding.
+[2025-03-14 16:12:04Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Kubectl tool installer",
+  "description": "Install a specific version of kubectl binary. Acceptable values are latest or any semantic version string like 1.15.0",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 4,
+          "col": 4,
+          "lit": "version"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 7,
+          "col": 16,
+          "lit": "latest"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": false,
+    "script": "lib/index.js",
+    "pre": null,
+    "post": null,
+    "nodeVersion": "node16",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2025-03-14 16:12:04Z INFO ActionManager] Action node.js file: lib/index.js, no more preparation.
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Actions': '/Users/kk/devopsprj/myapp/actions-runner/_work/_actions'
+[2025-03-14 16:12:04Z INFO ActionManager] Load action that reference repository from '/Users/kk/devopsprj/myapp/actions-runner/_work/_actions/azure/setup-kubectl/v3'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Actions': '/Users/kk/devopsprj/myapp/actions-runner/_work/_actions'
+[2025-03-14 16:12:04Z INFO ActionManifestManager] Ignore action property branding.
+[2025-03-14 16:12:04Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Kubectl tool installer",
+  "description": "Install a specific version of kubectl binary. Acceptable values are latest or any semantic version string like 1.15.0",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 4,
+          "col": 4,
+          "lit": "version"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 7,
+          "col": 16,
+          "lit": "latest"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": false,
+    "script": "lib/index.js",
+    "pre": null,
+    "post": null,
+    "nodeVersion": "node16",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2025-03-14 16:12:04Z INFO ActionManager] Action pre node.js file: N/A.
+[2025-03-14 16:12:04Z INFO ActionManager] Action node.js file: lib/index.js.
+[2025-03-14 16:12:04Z INFO ActionManager] Action post node.js file: N/A.
+[2025-03-14 16:12:04Z INFO JobExtension] Adding .
+[2025-03-14 16:12:04Z INFO JobExtension] Adding .
+[2025-03-14 16:12:04Z INFO JobExtension] Adding .
+[2025-03-14 16:12:04Z INFO JobExtension] Adding .
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Diag': '/Users/kk/devopsprj/myapp/actions-runner/_diag'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Diag': '/Users/kk/devopsprj/myapp/actions-runner/_diag'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Diag': '/Users/kk/devopsprj/myapp/actions-runner/_diag'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Diag': '/Users/kk/devopsprj/myapp/actions-runner/_diag'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Diag': '/Users/kk/devopsprj/myapp/actions-runner/_diag'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Diag': '/Users/kk/devopsprj/myapp/actions-runner/_diag'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Diag': '/Users/kk/devopsprj/myapp/actions-runner/_diag'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Diag': '/Users/kk/devopsprj/myapp/actions-runner/_diag'
+[2025-03-14 16:12:04Z INFO JobExtension] Total accessible running process: 319.
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:12:04Z INFO JobExtension] Start checking service connectivity in background.
+[2025-03-14 16:12:04Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "setup_job",
+  "type": "runner",
+  "stage": "Pre",
+  "stepId": "9fa76ca2-b6ab-41dc-8349-76bc59c4bcf1",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 5,
+  "startTime": "2025-03-14T16:11:59.714911Z",
+  "finishTime": "2025-03-14T16:12:04.58879Z"
+}.
+[2025-03-14 16:12:04Z INFO JobRunner] Total job steps: 4.
+[2025-03-14 16:12:04Z INFO JobRunner] Run all job steps.
+[2025-03-14 16:12:04Z INFO StepsRunner] Processing step: DisplayName='Checkout Repository'
+[2025-03-14 16:12:04Z INFO StepsRunner] Evaluating: success()
+[2025-03-14 16:12:04Z INFO StepsRunner] Result: true
+[2025-03-14 16:12:04Z INFO StepsRunner] Starting the step.
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Actions': '/Users/kk/devopsprj/myapp/actions-runner/_work/_actions'
+[2025-03-14 16:12:04Z INFO ActionManager] Load action that reference repository from '/Users/kk/devopsprj/myapp/actions-runner/_work/_actions/actions/checkout/v4'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Actions': '/Users/kk/devopsprj/myapp/actions-runner/_work/_actions'
+[2025-03-14 16:12:04Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "ssh-user"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 14,
+          "lit": "git"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 52,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 54,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 57,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 3,
+          "lit": "filter"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 69,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 76,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 77,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 79,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 80,
+          "col": 3,
+          "lit": "show-progress"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 94,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 95,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 97,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 98,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2025-03-14 16:12:04Z INFO ActionManager] Action pre node.js file: N/A.
+[2025-03-14 16:12:04Z INFO ActionManager] Action node.js file: dist/index.js.
+[2025-03-14 16:12:04Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2025-03-14 16:12:04Z INFO ExecutionContext] Reserve record order 6 to 10 for post job actions.
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Diag': '/Users/kk/devopsprj/myapp/actions-runner/_diag'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Diag': '/Users/kk/devopsprj/myapp/actions-runner/_diag'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Temp': '/Users/kk/devopsprj/myapp/actions-runner/_work/_temp'
+[2025-03-14 16:12:04Z INFO ExecutionContext] Write event payload to /Users/kk/devopsprj/myapp/actions-runner/_work/_temp/_github_workflow/event.json
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Temp': '/Users/kk/devopsprj/myapp/actions-runner/_work/_temp'
+[2025-03-14 16:12:04Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2025-03-14 16:12:04Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathFileCommand, Runner.Worker
+[2025-03-14 16:12:04Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvFileCommand, Runner.Worker
+[2025-03-14 16:12:04Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.CreateStepSummaryCommand, Runner.Worker
+[2025-03-14 16:12:04Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SaveStateFileCommand, Runner.Worker
+[2025-03-14 16:12:04Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetOutputFileCommand, Runner.Worker
+[2025-03-14 16:12:04Z INFO ActionManifestManager] Input 'repository': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 6,
+  "col": 14,
+  "lit": "kabinkumar/myapp"
+}
+[2025-03-14 16:12:04Z INFO ActionManifestManager] Input 'ref': default value evaluate result: ""
+[2025-03-14 16:12:04Z INFO ActionManifestManager] Input 'token': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 24,
+  "col": 14,
+  "lit": "***"
+}
+[2025-03-14 16:12:04Z INFO ActionManifestManager] Input 'ssh-key': default value evaluate result: ""
+[2025-03-14 16:12:04Z INFO ActionManifestManager] Input 'ssh-known-hosts': default value evaluate result: ""
+[2025-03-14 16:12:04Z INFO ActionManifestManager] Input 'ssh-strict': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 47,
+  "col": 14,
+  "lit": "true"
+}
+[2025-03-14 16:12:04Z INFO ActionManifestManager] Input 'ssh-user': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 51,
+  "col": 14,
+  "lit": "git"
+}
+[2025-03-14 16:12:04Z INFO ActionManifestManager] Input 'persist-credentials': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 54,
+  "col": 14,
+  "lit": "true"
+}
+[2025-03-14 16:12:04Z INFO ActionManifestManager] Input 'path': default value evaluate result: ""
+[2025-03-14 16:12:04Z INFO ActionManifestManager] Input 'clean': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 59,
+  "col": 14,
+  "lit": "true"
+}
+[2025-03-14 16:12:04Z INFO ActionManifestManager] Input 'filter': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 64,
+  "col": 14,
+  "lit": ""
+}
+[2025-03-14 16:12:04Z INFO ActionManifestManager] Input 'sparse-checkout': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 69,
+  "col": 14,
+  "lit": ""
+}
+[2025-03-14 16:12:04Z INFO ActionManifestManager] Input 'sparse-checkout-cone-mode': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 73,
+  "col": 14,
+  "lit": "true"
+}
+[2025-03-14 16:12:04Z INFO ActionManifestManager] Input 'fetch-depth': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 76,
+  "col": 14,
+  "lit": "1"
+}
+[2025-03-14 16:12:04Z INFO ActionManifestManager] Input 'fetch-tags': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 79,
+  "col": 14,
+  "lit": "false"
+}
+[2025-03-14 16:12:04Z INFO ActionManifestManager] Input 'show-progress': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 82,
+  "col": 14,
+  "lit": "true"
+}
+[2025-03-14 16:12:04Z INFO ActionManifestManager] Input 'lfs': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 85,
+  "col": 14,
+  "lit": "false"
+}
+[2025-03-14 16:12:04Z INFO ActionManifestManager] Input 'submodules': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 94,
+  "col": 14,
+  "lit": "false"
+}
+[2025-03-14 16:12:04Z INFO ActionManifestManager] Input 'set-safe-directory': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 97,
+  "col": 14,
+  "lit": "true"
+}
+[2025-03-14 16:12:04Z INFO ActionManifestManager] Input 'github-server-url': default value evaluate result: ""
+[2025-03-14 16:12:04Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2025-03-14 16:12:04Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.InternalPluginSetRepoPathCommandExtension, Runner.Worker
+[2025-03-14 16:12:04Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvCommandExtension, Runner.Worker
+[2025-03-14 16:12:04Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetOutputCommandExtension, Runner.Worker
+[2025-03-14 16:12:04Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SaveStateCommandExtension, Runner.Worker
+[2025-03-14 16:12:04Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathCommandExtension, Runner.Worker
+[2025-03-14 16:12:04Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMaskCommandExtension, Runner.Worker
+[2025-03-14 16:12:04Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMatcherCommandExtension, Runner.Worker
+[2025-03-14 16:12:04Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.RemoveMatcherCommandExtension, Runner.Worker
+[2025-03-14 16:12:04Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.WarningCommandExtension, Runner.Worker
+[2025-03-14 16:12:04Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.ErrorCommandExtension, Runner.Worker
+[2025-03-14 16:12:04Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.NoticeCommandExtension, Runner.Worker
+[2025-03-14 16:12:04Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.DebugCommandExtension, Runner.Worker
+[2025-03-14 16:12:04Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.GroupCommandExtension, Runner.Worker
+[2025-03-14 16:12:04Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EndGroupCommandExtension, Runner.Worker
+[2025-03-14 16:12:04Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EchoCommandExtension, Runner.Worker
+[2025-03-14 16:12:04Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2025-03-14 16:12:04Z INFO ActionCommandManager] Register action command extension for command set-env
+[2025-03-14 16:12:04Z INFO ActionCommandManager] Register action command extension for command set-output
+[2025-03-14 16:12:04Z INFO ActionCommandManager] Register action command extension for command save-state
+[2025-03-14 16:12:04Z INFO ActionCommandManager] Register action command extension for command add-path
+[2025-03-14 16:12:04Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2025-03-14 16:12:04Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2025-03-14 16:12:04Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2025-03-14 16:12:04Z INFO ActionCommandManager] Register action command extension for command warning
+[2025-03-14 16:12:04Z INFO ActionCommandManager] Register action command extension for command error
+[2025-03-14 16:12:04Z INFO ActionCommandManager] Register action command extension for command notice
+[2025-03-14 16:12:04Z INFO ActionCommandManager] Register action command extension for command debug
+[2025-03-14 16:12:04Z INFO ActionCommandManager] Register action command extension for command group
+[2025-03-14 16:12:04Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2025-03-14 16:12:04Z INFO ActionCommandManager] Register action command extension for command echo
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:12:04Z INFO HostContext] Well known directory 'Externals': '/Users/kk/devopsprj/myapp/actions-runner/externals'
+[2025-03-14 16:12:04Z INFO ProcessInvokerWrapper] Starting process:
+[2025-03-14 16:12:04Z INFO ProcessInvokerWrapper]   File name: '/Users/kk/devopsprj/myapp/actions-runner/externals/node20/bin/node'
+[2025-03-14 16:12:04Z INFO ProcessInvokerWrapper]   Arguments: '"/Users/kk/devopsprj/myapp/actions-runner/_work/_actions/actions/checkout/v4/dist/index.js"'
+[2025-03-14 16:12:04Z INFO ProcessInvokerWrapper]   Working directory: '/Users/kk/devopsprj/myapp/actions-runner/_work/myapp/myapp'
+[2025-03-14 16:12:04Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-03-14 16:12:04Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-03-14 16:12:04Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-03-14 16:12:04Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-03-14 16:12:04Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2025-03-14 16:12:04Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-03-14 16:12:04Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-03-14 16:12:04Z INFO ProcessInvokerWrapper] Process started with process id 17244, waiting for process exit.
+[2025-03-14 16:12:04Z INFO JobServerQueue] Got a step log file to send to results service.
+[2025-03-14 16:12:04Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, /Users/kk/devopsprj/myapp/actions-runner/_diag/blocks/b67c9a9f-de65-451a-8f26-2d8c3ebb0610_9fa76ca2-b6ab-41dc-8349-76bc59c4bcf1.1
+[2025-03-14 16:12:04Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2025-03-14 16:12:04Z INFO JobServerQueue] Try to append 1 batches web console lines for record '9fa76ca2-b6ab-41dc-8349-76bc59c4bcf1', success rate: 1/1.
+[2025-03-14 16:12:04Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'd62f5f72-dfaa-47ad-8d18-1f20d6a41c3c', success rate: 1/1.
+[2025-03-14 16:12:04Z INFO AddMaskCommandExtension] Add new secret mask with length of 76
+[2025-03-14 16:12:04Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'd62f5f72-dfaa-47ad-8d18-1f20d6a41c3c', success rate: 1/1.
+[2025-03-14 16:12:05Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'd62f5f72-dfaa-47ad-8d18-1f20d6a41c3c', success rate: 1/1.
+[2025-03-14 16:12:07Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2025-03-14 16:12:14Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:12:14Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:12:14Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:12:24Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:12:24Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:12:24Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:12:34Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:12:34Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:12:34Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:12:44Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:12:44Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:12:44Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:12:54Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:12:54Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:12:54Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:13:00Z INFO JobServerQueue] Stop aggressive process web console line queue.
+[2025-03-14 16:13:04Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:04Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:04Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:13:04Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'd62f5f72-dfaa-47ad-8d18-1f20d6a41c3c', success rate: 1/1.
+[2025-03-14 16:13:05Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:05Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:05Z INFO ProcessInvokerWrapper] Finished process 17244 with exit code 0, and elapsed time 00:01:01.3443765.
+[2025-03-14 16:13:05Z INFO CreateStepSummaryCommand] Step Summary file (/Users/kk/devopsprj/myapp/actions-runner/_work/_temp/_runner_file_commands/step_summary_0cd98983-665c-471a-99ca-5bafe5e4a6fe) is empty; skipping attachment upload
+[2025-03-14 16:13:05Z INFO StepsRunner] Step result: 
+[2025-03-14 16:13:05Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "actions/checkout",
+  "ref": "v4",
+  "type": "node20",
+  "stage": "Main",
+  "stepId": "d62f5f72-dfaa-47ad-8d18-1f20d6a41c3c",
+  "stepContextName": "__actions_checkout",
+  "hasPreStep": false,
+  "hasPostStep": true,
+  "result": "succeeded",
+  "errorMessages": [
+    "no submodule mapping found in .gitmodules for path 'actions-runner/_work/myapp/myapp'",
+    "Unable to clean or reset the repository. The repository will be recreated instead."
+  ],
+  "executionTimeInSeconds": 62,
+  "startTime": "2025-03-14T16:12:04.592307Z",
+  "finishTime": "2025-03-14T16:13:05.956592Z"
+}.
+[2025-03-14 16:13:05Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2025-03-14 16:13:05Z INFO StepsRunner] Current state: job state = ''
+[2025-03-14 16:13:05Z INFO StepsRunner] Processing step: DisplayName='Set up Kubectl'
+[2025-03-14 16:13:05Z INFO StepsRunner] Evaluating: success()
+[2025-03-14 16:13:05Z INFO StepsRunner] Result: true
+[2025-03-14 16:13:05Z INFO StepsRunner] Starting the step.
+[2025-03-14 16:13:05Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:05Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:05Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:13:05Z INFO HostContext] Well known directory 'Actions': '/Users/kk/devopsprj/myapp/actions-runner/_work/_actions'
+[2025-03-14 16:13:05Z INFO ActionManager] Load action that reference repository from '/Users/kk/devopsprj/myapp/actions-runner/_work/_actions/azure/setup-kubectl/v3'
+[2025-03-14 16:13:05Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:05Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:05Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:13:05Z INFO HostContext] Well known directory 'Actions': '/Users/kk/devopsprj/myapp/actions-runner/_work/_actions'
+[2025-03-14 16:13:05Z INFO ActionManifestManager] Ignore action property branding.
+[2025-03-14 16:13:05Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Kubectl tool installer",
+  "description": "Install a specific version of kubectl binary. Acceptable values are latest or any semantic version string like 1.15.0",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 4,
+          "col": 4,
+          "lit": "version"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 7,
+          "col": 16,
+          "lit": "latest"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": false,
+    "script": "lib/index.js",
+    "pre": null,
+    "post": null,
+    "nodeVersion": "node16",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2025-03-14 16:13:05Z INFO ActionManager] Action pre node.js file: N/A.
+[2025-03-14 16:13:05Z INFO ActionManager] Action node.js file: lib/index.js.
+[2025-03-14 16:13:05Z INFO ActionManager] Action post node.js file: N/A.
+[2025-03-14 16:13:05Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:05Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:05Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:13:05Z INFO HostContext] Well known directory 'Temp': '/Users/kk/devopsprj/myapp/actions-runner/_work/_temp'
+[2025-03-14 16:13:05Z INFO ExecutionContext] Write event payload to /Users/kk/devopsprj/myapp/actions-runner/_work/_temp/_github_workflow/event.json
+[2025-03-14 16:13:05Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:05Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:05Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:13:05Z INFO HostContext] Well known directory 'Temp': '/Users/kk/devopsprj/myapp/actions-runner/_work/_temp'
+[2025-03-14 16:13:05Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2025-03-14 16:13:05Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'd62f5f72-dfaa-47ad-8d18-1f20d6a41c3c', success rate: 1/1.
+[2025-03-14 16:13:05Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2025-03-14 16:13:05Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2025-03-14 16:13:05Z INFO ActionCommandManager] Register action command extension for command set-env
+[2025-03-14 16:13:05Z INFO ActionCommandManager] Register action command extension for command set-output
+[2025-03-14 16:13:05Z INFO ActionCommandManager] Register action command extension for command save-state
+[2025-03-14 16:13:05Z INFO ActionCommandManager] Register action command extension for command add-path
+[2025-03-14 16:13:05Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2025-03-14 16:13:05Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2025-03-14 16:13:05Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2025-03-14 16:13:05Z INFO ActionCommandManager] Register action command extension for command warning
+[2025-03-14 16:13:05Z INFO ActionCommandManager] Register action command extension for command error
+[2025-03-14 16:13:05Z INFO ActionCommandManager] Register action command extension for command notice
+[2025-03-14 16:13:05Z INFO ActionCommandManager] Register action command extension for command debug
+[2025-03-14 16:13:05Z INFO ActionCommandManager] Register action command extension for command group
+[2025-03-14 16:13:05Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2025-03-14 16:13:05Z INFO ActionCommandManager] Register action command extension for command echo
+[2025-03-14 16:13:05Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:05Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:05Z INFO HostContext] Well known directory 'Externals': '/Users/kk/devopsprj/myapp/actions-runner/externals'
+[2025-03-14 16:13:05Z INFO ProcessInvokerWrapper] Starting process:
+[2025-03-14 16:13:05Z INFO ProcessInvokerWrapper]   File name: '/Users/kk/devopsprj/myapp/actions-runner/externals/node20/bin/node'
+[2025-03-14 16:13:05Z INFO ProcessInvokerWrapper]   Arguments: '"/Users/kk/devopsprj/myapp/actions-runner/_work/_actions/azure/setup-kubectl/v3/lib/index.js"'
+[2025-03-14 16:13:05Z INFO ProcessInvokerWrapper]   Working directory: '/Users/kk/devopsprj/myapp/actions-runner/_work/myapp/myapp'
+[2025-03-14 16:13:05Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-03-14 16:13:05Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-03-14 16:13:05Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-03-14 16:13:05Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-03-14 16:13:05Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2025-03-14 16:13:05Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-03-14 16:13:05Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-03-14 16:13:05Z INFO ProcessInvokerWrapper] Process started with process id 17402, waiting for process exit.
+[2025-03-14 16:13:06Z INFO JobServerQueue] Got a step log file to send to results service.
+[2025-03-14 16:13:06Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, /Users/kk/devopsprj/myapp/actions-runner/_diag/blocks/b67c9a9f-de65-451a-8f26-2d8c3ebb0610_d62f5f72-dfaa-47ad-8d18-1f20d6a41c3c.1
+[2025-03-14 16:13:06Z INFO JobServerQueue] Try to append 1 batches web console lines for record '4b6e619d-cf2d-42a5-930e-62509984f347', success rate: 1/1.
+[2025-03-14 16:13:06Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2025-03-14 16:13:06Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:06Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:06Z INFO ProcessInvokerWrapper] Finished process 17402 with exit code 0, and elapsed time 00:00:00.9769790.
+[2025-03-14 16:13:06Z INFO CreateStepSummaryCommand] Step Summary file (/Users/kk/devopsprj/myapp/actions-runner/_work/_temp/_runner_file_commands/step_summary_51c03fab-536e-42e7-bb37-9fd2c1a1f736) is empty; skipping attachment upload
+[2025-03-14 16:13:06Z INFO StepsRunner] Step result: 
+[2025-03-14 16:13:06Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "azure/setup-kubectl",
+  "ref": "v3",
+  "type": "node20",
+  "stage": "Main",
+  "stepId": "4b6e619d-cf2d-42a5-930e-62509984f347",
+  "stepContextName": "__azure_setup-kubectl",
+  "hasPreStep": false,
+  "hasPostStep": false,
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 1,
+  "startTime": "2025-03-14T16:13:05.957477Z",
+  "finishTime": "2025-03-14T16:13:06.938636Z"
+}.
+[2025-03-14 16:13:06Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2025-03-14 16:13:06Z INFO StepsRunner] Current state: job state = ''
+[2025-03-14 16:13:06Z INFO StepsRunner] Processing step: DisplayName='Verify Kubeconfig'
+[2025-03-14 16:13:06Z INFO StepsRunner] Evaluating: success()
+[2025-03-14 16:13:06Z INFO StepsRunner] Result: true
+[2025-03-14 16:13:06Z INFO StepsRunner] Starting the step.
+[2025-03-14 16:13:06Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:06Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:06Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:13:06Z INFO HostContext] Well known directory 'Temp': '/Users/kk/devopsprj/myapp/actions-runner/_work/_temp'
+[2025-03-14 16:13:06Z INFO ExecutionContext] Write event payload to /Users/kk/devopsprj/myapp/actions-runner/_work/_temp/_github_workflow/event.json
+[2025-03-14 16:13:06Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:06Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:06Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:13:06Z INFO HostContext] Well known directory 'Temp': '/Users/kk/devopsprj/myapp/actions-runner/_work/_temp'
+[2025-03-14 16:13:06Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2025-03-14 16:13:06Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2025-03-14 16:13:06Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2025-03-14 16:13:06Z INFO ActionCommandManager] Register action command extension for command set-env
+[2025-03-14 16:13:06Z INFO ActionCommandManager] Register action command extension for command set-output
+[2025-03-14 16:13:06Z INFO ActionCommandManager] Register action command extension for command save-state
+[2025-03-14 16:13:06Z INFO ActionCommandManager] Register action command extension for command add-path
+[2025-03-14 16:13:06Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2025-03-14 16:13:06Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2025-03-14 16:13:06Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2025-03-14 16:13:06Z INFO ActionCommandManager] Register action command extension for command warning
+[2025-03-14 16:13:06Z INFO ActionCommandManager] Register action command extension for command error
+[2025-03-14 16:13:06Z INFO ActionCommandManager] Register action command extension for command notice
+[2025-03-14 16:13:06Z INFO ActionCommandManager] Register action command extension for command debug
+[2025-03-14 16:13:06Z INFO ActionCommandManager] Register action command extension for command group
+[2025-03-14 16:13:06Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2025-03-14 16:13:06Z INFO ActionCommandManager] Register action command extension for command echo
+[2025-03-14 16:13:06Z INFO ScriptHandler] Which2: 'bash'
+[2025-03-14 16:13:06Z INFO ScriptHandler] Location: '/bin/bash'
+[2025-03-14 16:13:06Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:06Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:06Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:13:06Z INFO HostContext] Well known directory 'Temp': '/Users/kk/devopsprj/myapp/actions-runner/_work/_temp'
+[2025-03-14 16:13:06Z INFO ScriptHandler] Which2: 'bash'
+[2025-03-14 16:13:06Z INFO ScriptHandler] Location: '/bin/bash'
+[2025-03-14 16:13:06Z INFO ProcessInvokerWrapper] Starting process:
+[2025-03-14 16:13:06Z INFO ProcessInvokerWrapper]   File name: '/bin/bash'
+[2025-03-14 16:13:06Z INFO ProcessInvokerWrapper]   Arguments: '-e /Users/kk/devopsprj/myapp/actions-runner/_work/_temp/c5d065be-cc6d-473c-92c0-e53e8bfff574.sh'
+[2025-03-14 16:13:06Z INFO ProcessInvokerWrapper]   Working directory: '/Users/kk/devopsprj/myapp/actions-runner/_work/myapp/myapp'
+[2025-03-14 16:13:06Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-03-14 16:13:06Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-03-14 16:13:06Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-03-14 16:13:06Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-03-14 16:13:06Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2025-03-14 16:13:06Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-03-14 16:13:06Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-03-14 16:13:06Z INFO JobServerQueue] Try to append 1 batches web console lines for record '1455acb4-c037-417c-974a-2b32789d31d3', success rate: 1/1.
+[2025-03-14 16:13:06Z INFO ProcessInvokerWrapper] Process started with process id 17410, waiting for process exit.
+[2025-03-14 16:13:07Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2025-03-14 16:13:07Z INFO JobServerQueue] Try to append 1 batches web console lines for record '1455acb4-c037-417c-974a-2b32789d31d3', success rate: 1/1.
+[2025-03-14 16:13:07Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:07Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:07Z INFO ProcessInvokerWrapper] Finished process 17410 with exit code 0, and elapsed time 00:00:00.5581784.
+[2025-03-14 16:13:07Z INFO CreateStepSummaryCommand] Step Summary file (/Users/kk/devopsprj/myapp/actions-runner/_work/_temp/_runner_file_commands/step_summary_449f93b2-8f32-4244-ab88-7088a6620be2) is empty; skipping attachment upload
+[2025-03-14 16:13:07Z INFO StepsRunner] Step result: 
+[2025-03-14 16:13:07Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "sh",
+  "type": "run",
+  "stage": "Main",
+  "stepId": "1455acb4-c037-417c-974a-2b32789d31d3",
+  "stepContextName": "__run",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 1,
+  "startTime": "2025-03-14T16:13:06.939629Z",
+  "finishTime": "2025-03-14T16:13:07.517879Z"
+}.
+[2025-03-14 16:13:07Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2025-03-14 16:13:07Z INFO StepsRunner] Current state: job state = ''
+[2025-03-14 16:13:07Z INFO StepsRunner] Processing step: DisplayName='Deploy to Kubernetes'
+[2025-03-14 16:13:07Z INFO StepsRunner] Evaluating: success()
+[2025-03-14 16:13:07Z INFO StepsRunner] Result: true
+[2025-03-14 16:13:07Z INFO StepsRunner] Starting the step.
+[2025-03-14 16:13:07Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:07Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:07Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:13:07Z INFO HostContext] Well known directory 'Temp': '/Users/kk/devopsprj/myapp/actions-runner/_work/_temp'
+[2025-03-14 16:13:07Z INFO ExecutionContext] Write event payload to /Users/kk/devopsprj/myapp/actions-runner/_work/_temp/_github_workflow/event.json
+[2025-03-14 16:13:07Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:07Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:07Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:13:07Z INFO HostContext] Well known directory 'Temp': '/Users/kk/devopsprj/myapp/actions-runner/_work/_temp'
+[2025-03-14 16:13:07Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2025-03-14 16:13:07Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2025-03-14 16:13:07Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2025-03-14 16:13:07Z INFO ActionCommandManager] Register action command extension for command set-env
+[2025-03-14 16:13:07Z INFO ActionCommandManager] Register action command extension for command set-output
+[2025-03-14 16:13:07Z INFO ActionCommandManager] Register action command extension for command save-state
+[2025-03-14 16:13:07Z INFO ActionCommandManager] Register action command extension for command add-path
+[2025-03-14 16:13:07Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2025-03-14 16:13:07Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2025-03-14 16:13:07Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2025-03-14 16:13:07Z INFO ActionCommandManager] Register action command extension for command warning
+[2025-03-14 16:13:07Z INFO ActionCommandManager] Register action command extension for command error
+[2025-03-14 16:13:07Z INFO ActionCommandManager] Register action command extension for command notice
+[2025-03-14 16:13:07Z INFO ActionCommandManager] Register action command extension for command debug
+[2025-03-14 16:13:07Z INFO ActionCommandManager] Register action command extension for command group
+[2025-03-14 16:13:07Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2025-03-14 16:13:07Z INFO ActionCommandManager] Register action command extension for command echo
+[2025-03-14 16:13:07Z INFO ScriptHandler] Which2: 'bash'
+[2025-03-14 16:13:07Z INFO ScriptHandler] Location: '/bin/bash'
+[2025-03-14 16:13:07Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:07Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:07Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:13:07Z INFO HostContext] Well known directory 'Temp': '/Users/kk/devopsprj/myapp/actions-runner/_work/_temp'
+[2025-03-14 16:13:07Z INFO ScriptHandler] Which2: 'bash'
+[2025-03-14 16:13:07Z INFO ScriptHandler] Location: '/bin/bash'
+[2025-03-14 16:13:07Z INFO ProcessInvokerWrapper] Starting process:
+[2025-03-14 16:13:07Z INFO ProcessInvokerWrapper]   File name: '/bin/bash'
+[2025-03-14 16:13:07Z INFO ProcessInvokerWrapper]   Arguments: '-e /Users/kk/devopsprj/myapp/actions-runner/_work/_temp/7afa2334-791d-4851-b810-87c60055ba5c.sh'
+[2025-03-14 16:13:07Z INFO ProcessInvokerWrapper]   Working directory: '/Users/kk/devopsprj/myapp/actions-runner/_work/myapp/myapp'
+[2025-03-14 16:13:07Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-03-14 16:13:07Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-03-14 16:13:07Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-03-14 16:13:07Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-03-14 16:13:07Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2025-03-14 16:13:07Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-03-14 16:13:07Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-03-14 16:13:07Z INFO ProcessInvokerWrapper] Process started with process id 17414, waiting for process exit.
+[2025-03-14 16:13:07Z INFO JobServerQueue] Try to upload 2 log files or attachments, success rate: 2/2.
+[2025-03-14 16:13:07Z INFO JobServerQueue] Try to append 1 batches web console lines for record '1455acb4-c037-417c-974a-2b32789d31d3', success rate: 1/1.
+[2025-03-14 16:13:07Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'f40cf2fe-f890-4964-a9ed-25c9d216d7aa', success rate: 1/1.
+[2025-03-14 16:13:08Z INFO JobServerQueue] Got a step log file to send to results service.
+[2025-03-14 16:13:08Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, /Users/kk/devopsprj/myapp/actions-runner/_diag/blocks/b67c9a9f-de65-451a-8f26-2d8c3ebb0610_4b6e619d-cf2d-42a5-930e-62509984f347.1
+[2025-03-14 16:13:09Z INFO JobServerQueue] Got a step log file to send to results service.
+[2025-03-14 16:13:09Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, /Users/kk/devopsprj/myapp/actions-runner/_diag/blocks/b67c9a9f-de65-451a-8f26-2d8c3ebb0610_1455acb4-c037-417c-974a-2b32789d31d3.1
+[2025-03-14 16:13:09Z INFO JobServerQueue] Tried to upload 2 file(s) to results, success rate: 2/2.
+[2025-03-14 16:13:14Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:14Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:14Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:13:24Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:24Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:24Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:13:34Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:34Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:34Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper] Finished process 17414 with exit code 0, and elapsed time 00:00:30.2211916.
+[2025-03-14 16:13:37Z INFO CreateStepSummaryCommand] Step Summary file (/Users/kk/devopsprj/myapp/actions-runner/_work/_temp/_runner_file_commands/step_summary_54ca7425-aa1e-44f0-b56f-8c3a6d9d1f16) is empty; skipping attachment upload
+[2025-03-14 16:13:37Z INFO StepsRunner] Step result: 
+[2025-03-14 16:13:37Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "sh",
+  "type": "run",
+  "stage": "Main",
+  "stepId": "f40cf2fe-f890-4964-a9ed-25c9d216d7aa",
+  "stepContextName": "__run_2",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 31,
+  "startTime": "2025-03-14T16:13:07.51823Z",
+  "finishTime": "2025-03-14T16:13:37.742942Z"
+}.
+[2025-03-14 16:13:37Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2025-03-14 16:13:37Z INFO StepsRunner] Current state: job state = ''
+[2025-03-14 16:13:37Z INFO StepsRunner] Processing step: DisplayName='Post Checkout Repository'
+[2025-03-14 16:13:37Z INFO StepsRunner] Evaluating: always()
+[2025-03-14 16:13:37Z INFO StepsRunner] Result: true
+[2025-03-14 16:13:37Z INFO StepsRunner] Starting the step.
+[2025-03-14 16:13:37Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:37Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:37Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:13:37Z INFO HostContext] Well known directory 'Actions': '/Users/kk/devopsprj/myapp/actions-runner/_work/_actions'
+[2025-03-14 16:13:37Z INFO ActionManager] Load action that reference repository from '/Users/kk/devopsprj/myapp/actions-runner/_work/_actions/actions/checkout/v4'
+[2025-03-14 16:13:37Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:37Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:37Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:13:37Z INFO HostContext] Well known directory 'Actions': '/Users/kk/devopsprj/myapp/actions-runner/_work/_actions'
+[2025-03-14 16:13:37Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "ssh-user"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 14,
+          "lit": "git"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 52,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 54,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 57,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 3,
+          "lit": "filter"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 69,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 76,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 77,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 79,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 80,
+          "col": 3,
+          "lit": "show-progress"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 94,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 95,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 97,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 98,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2025-03-14 16:13:37Z INFO ActionManager] Action pre node.js file: N/A.
+[2025-03-14 16:13:37Z INFO ActionManager] Action node.js file: dist/index.js.
+[2025-03-14 16:13:37Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2025-03-14 16:13:37Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:37Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:37Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:13:37Z INFO HostContext] Well known directory 'Temp': '/Users/kk/devopsprj/myapp/actions-runner/_work/_temp'
+[2025-03-14 16:13:37Z INFO ExecutionContext] Write event payload to /Users/kk/devopsprj/myapp/actions-runner/_work/_temp/_github_workflow/event.json
+[2025-03-14 16:13:37Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:37Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:37Z INFO HostContext] Well known directory 'Work': '/Users/kk/devopsprj/myapp/actions-runner/_work'
+[2025-03-14 16:13:37Z INFO HostContext] Well known directory 'Temp': '/Users/kk/devopsprj/myapp/actions-runner/_work/_temp'
+[2025-03-14 16:13:37Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2025-03-14 16:13:37Z INFO ActionManifestManager] Input 'repository': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 6,
+  "col": 14,
+  "lit": "kabinkumar/myapp"
+}
+[2025-03-14 16:13:37Z INFO ActionManifestManager] Input 'ref': default value evaluate result: ""
+[2025-03-14 16:13:37Z INFO ActionManifestManager] Input 'token': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 24,
+  "col": 14,
+  "lit": "***"
+}
+[2025-03-14 16:13:37Z INFO ActionManifestManager] Input 'ssh-key': default value evaluate result: ""
+[2025-03-14 16:13:37Z INFO ActionManifestManager] Input 'ssh-known-hosts': default value evaluate result: ""
+[2025-03-14 16:13:37Z INFO ActionManifestManager] Input 'ssh-strict': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 47,
+  "col": 14,
+  "lit": "true"
+}
+[2025-03-14 16:13:37Z INFO ActionManifestManager] Input 'ssh-user': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 51,
+  "col": 14,
+  "lit": "git"
+}
+[2025-03-14 16:13:37Z INFO ActionManifestManager] Input 'persist-credentials': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 54,
+  "col": 14,
+  "lit": "true"
+}
+[2025-03-14 16:13:37Z INFO ActionManifestManager] Input 'path': default value evaluate result: ""
+[2025-03-14 16:13:37Z INFO ActionManifestManager] Input 'clean': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 59,
+  "col": 14,
+  "lit": "true"
+}
+[2025-03-14 16:13:37Z INFO ActionManifestManager] Input 'filter': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 64,
+  "col": 14,
+  "lit": ""
+}
+[2025-03-14 16:13:37Z INFO ActionManifestManager] Input 'sparse-checkout': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 69,
+  "col": 14,
+  "lit": ""
+}
+[2025-03-14 16:13:37Z INFO ActionManifestManager] Input 'sparse-checkout-cone-mode': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 73,
+  "col": 14,
+  "lit": "true"
+}
+[2025-03-14 16:13:37Z INFO ActionManifestManager] Input 'fetch-depth': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 76,
+  "col": 14,
+  "lit": "1"
+}
+[2025-03-14 16:13:37Z INFO ActionManifestManager] Input 'fetch-tags': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 79,
+  "col": 14,
+  "lit": "false"
+}
+[2025-03-14 16:13:37Z INFO ActionManifestManager] Input 'show-progress': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 82,
+  "col": 14,
+  "lit": "true"
+}
+[2025-03-14 16:13:37Z INFO ActionManifestManager] Input 'lfs': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 85,
+  "col": 14,
+  "lit": "false"
+}
+[2025-03-14 16:13:37Z INFO ActionManifestManager] Input 'submodules': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 94,
+  "col": 14,
+  "lit": "false"
+}
+[2025-03-14 16:13:37Z INFO ActionManifestManager] Input 'set-safe-directory': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 97,
+  "col": 14,
+  "lit": "true"
+}
+[2025-03-14 16:13:37Z INFO ActionManifestManager] Input 'github-server-url': default value evaluate result: ""
+[2025-03-14 16:13:37Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2025-03-14 16:13:37Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2025-03-14 16:13:37Z INFO ActionCommandManager] Register action command extension for command set-env
+[2025-03-14 16:13:37Z INFO ActionCommandManager] Register action command extension for command set-output
+[2025-03-14 16:13:37Z INFO ActionCommandManager] Register action command extension for command save-state
+[2025-03-14 16:13:37Z INFO ActionCommandManager] Register action command extension for command add-path
+[2025-03-14 16:13:37Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2025-03-14 16:13:37Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2025-03-14 16:13:37Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2025-03-14 16:13:37Z INFO ActionCommandManager] Register action command extension for command warning
+[2025-03-14 16:13:37Z INFO ActionCommandManager] Register action command extension for command error
+[2025-03-14 16:13:37Z INFO ActionCommandManager] Register action command extension for command notice
+[2025-03-14 16:13:37Z INFO ActionCommandManager] Register action command extension for command debug
+[2025-03-14 16:13:37Z INFO ActionCommandManager] Register action command extension for command group
+[2025-03-14 16:13:37Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2025-03-14 16:13:37Z INFO ActionCommandManager] Register action command extension for command echo
+[2025-03-14 16:13:37Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:37Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:37Z INFO HostContext] Well known directory 'Externals': '/Users/kk/devopsprj/myapp/actions-runner/externals'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper] Starting process:
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   File name: '/Users/kk/devopsprj/myapp/actions-runner/externals/node20/bin/node'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Arguments: '"/Users/kk/devopsprj/myapp/actions-runner/_work/_actions/actions/checkout/v4/dist/index.js"'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Working directory: '/Users/kk/devopsprj/myapp/actions-runner/_work/myapp/myapp'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper] Process started with process id 17443, waiting for process exit.
+[2025-03-14 16:13:37Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2025-03-14 16:13:37Z INFO AddMaskCommandExtension] Add new secret mask with length of 32
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper] Finished process 17443 with exit code 0, and elapsed time 00:00:00.1454512.
+[2025-03-14 16:13:37Z INFO CreateStepSummaryCommand] Step Summary file (/Users/kk/devopsprj/myapp/actions-runner/_work/_temp/_runner_file_commands/step_summary_800e0ac4-dc89-4a01-be1c-1de03815ed45) is empty; skipping attachment upload
+[2025-03-14 16:13:37Z INFO StepsRunner] Step result: 
+[2025-03-14 16:13:37Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "actions/checkout",
+  "ref": "v4",
+  "type": "node20",
+  "stage": "Post",
+  "stepId": "01378ea5-23fd-4502-8801-f1f51c90a577",
+  "result": "succeeded",
+  "errorMessages": [
+    "The process '/usr/bin/git' failed with exit code 128"
+  ],
+  "executionTimeInSeconds": 1,
+  "startTime": "2025-03-14T16:13:37.743342Z",
+  "finishTime": "2025-03-14T16:13:37.893295Z"
+}.
+[2025-03-14 16:13:37Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2025-03-14 16:13:37Z INFO StepsRunner] Current state: job state = ''
+[2025-03-14 16:13:37Z INFO JobRunner] Finalize job.
+[2025-03-14 16:13:37Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:37Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:37Z INFO HostContext] Well known directory 'Diag': '/Users/kk/devopsprj/myapp/actions-runner/_diag'
+[2025-03-14 16:13:37Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:37Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:37Z INFO HostContext] Well known directory 'Diag': '/Users/kk/devopsprj/myapp/actions-runner/_diag'
+[2025-03-14 16:13:37Z INFO JobExtension] Initialize Env context
+[2025-03-14 16:13:37Z INFO JobExtension] Initialize steps context
+[2025-03-14 16:13:37Z INFO JobExtension] Total accessible running process: 319.
+[2025-03-14 16:13:37Z INFO JobExtension] Inspecting process environment variables. PID: 17439 (mdworker_shared)
+[2025-03-14 16:13:37Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 17439 -o command`
+[2025-03-14 16:13:37Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:37Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper] Starting process:
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 17439 -o command'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Working directory: '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper] Process started with process id 17480, waiting for process exit.
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper] Finished process 17480 with exit code 0, and elapsed time 00:00:00.0197950.
+[2025-03-14 16:13:37Z INFO LinuxProcessExtensions] Successfully dump environment variables for 17439
+[2025-03-14 16:13:37Z INFO JobExtension] Inspecting process environment variables. PID: 17437 (mdworker_shared)
+[2025-03-14 16:13:37Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 17437 -o command`
+[2025-03-14 16:13:37Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:37Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper] Starting process:
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 17437 -o command'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Working directory: '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper] Process started with process id 17481, waiting for process exit.
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper] Finished process 17481 with exit code 0, and elapsed time 00:00:00.0185311.
+[2025-03-14 16:13:37Z INFO LinuxProcessExtensions] Successfully dump environment variables for 17437
+[2025-03-14 16:13:37Z INFO JobExtension] Inspecting process environment variables. PID: 17436 (mdworker_shared)
+[2025-03-14 16:13:37Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 17436 -o command`
+[2025-03-14 16:13:37Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:37Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper] Starting process:
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 17436 -o command'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Working directory: '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper] Process started with process id 17482, waiting for process exit.
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper] Finished process 17482 with exit code 0, and elapsed time 00:00:00.0172064.
+[2025-03-14 16:13:37Z INFO LinuxProcessExtensions] Successfully dump environment variables for 17436
+[2025-03-14 16:13:37Z INFO JobExtension] Inspecting process environment variables. PID: 17434 (mdworker_shared)
+[2025-03-14 16:13:37Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 17434 -o command`
+[2025-03-14 16:13:37Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:37Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper] Starting process:
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 17434 -o command'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Working directory: '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper] Process started with process id 17483, waiting for process exit.
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper] Finished process 17483 with exit code 0, and elapsed time 00:00:00.0175685.
+[2025-03-14 16:13:37Z INFO LinuxProcessExtensions] Successfully dump environment variables for 17434
+[2025-03-14 16:13:37Z INFO JobExtension] Inspecting process environment variables. PID: 17433 (mdworker_shared)
+[2025-03-14 16:13:37Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 17433 -o command`
+[2025-03-14 16:13:37Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:37Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper] Starting process:
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 17433 -o command'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Working directory: '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-03-14 16:13:37Z INFO JobServerQueue] Got a step log file to send to results service.
+[2025-03-14 16:13:37Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, /Users/kk/devopsprj/myapp/actions-runner/_diag/blocks/b67c9a9f-de65-451a-8f26-2d8c3ebb0610_f40cf2fe-f890-4964-a9ed-25c9d216d7aa.1
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper] Process started with process id 17484, waiting for process exit.
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper] Finished process 17484 with exit code 0, and elapsed time 00:00:00.0172450.
+[2025-03-14 16:13:37Z INFO LinuxProcessExtensions] Successfully dump environment variables for 17433
+[2025-03-14 16:13:37Z INFO JobExtension] Inspecting process environment variables. PID: 17432 (mdworker_shared)
+[2025-03-14 16:13:37Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 17432 -o command`
+[2025-03-14 16:13:37Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:37Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper] Starting process:
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 17432 -o command'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Working directory: '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-03-14 16:13:37Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] Process started with process id 17485, waiting for process exit.
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] Finished process 17485 with exit code 0, and elapsed time 00:00:00.0179221.
+[2025-03-14 16:13:38Z INFO LinuxProcessExtensions] Successfully dump environment variables for 17432
+[2025-03-14 16:13:38Z INFO JobExtension] Inspecting process environment variables. PID: 17431 (mdworker_shared)
+[2025-03-14 16:13:38Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 17431 -o command`
+[2025-03-14 16:13:38Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:38Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] Starting process:
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 17431 -o command'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Working directory: '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] Process started with process id 17486, waiting for process exit.
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] Finished process 17486 with exit code 0, and elapsed time 00:00:00.0179224.
+[2025-03-14 16:13:38Z INFO LinuxProcessExtensions] Successfully dump environment variables for 17431
+[2025-03-14 16:13:38Z INFO JobExtension] Inspecting process environment variables. PID: 17430 (mdworker_shared)
+[2025-03-14 16:13:38Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 17430 -o command`
+[2025-03-14 16:13:38Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:38Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] Starting process:
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 17430 -o command'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Working directory: '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] Process started with process id 17487, waiting for process exit.
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] Finished process 17487 with exit code 0, and elapsed time 00:00:00.0179049.
+[2025-03-14 16:13:38Z INFO LinuxProcessExtensions] Successfully dump environment variables for 17430
+[2025-03-14 16:13:38Z INFO JobExtension] Inspecting process environment variables. PID: 17429 (mdworker_shared)
+[2025-03-14 16:13:38Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 17429 -o command`
+[2025-03-14 16:13:38Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:38Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] Starting process:
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 17429 -o command'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Working directory: '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-03-14 16:13:38Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'f40cf2fe-f890-4964-a9ed-25c9d216d7aa', success rate: 1/1.
+[2025-03-14 16:13:38Z INFO JobServerQueue] Try to append 1 batches web console lines for record '01378ea5-23fd-4502-8801-f1f51c90a577', success rate: 1/1.
+[2025-03-14 16:13:38Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'a9fc7bb8-9660-437f-9be6-c01789076521', success rate: 1/1.
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] Process started with process id 17488, waiting for process exit.
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] Finished process 17488 with exit code 0, and elapsed time 00:00:00.0178076.
+[2025-03-14 16:13:38Z INFO LinuxProcessExtensions] Successfully dump environment variables for 17429
+[2025-03-14 16:13:38Z INFO JobExtension] Inspecting process environment variables. PID: 17427 (mdworker_shared)
+[2025-03-14 16:13:38Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 17427 -o command`
+[2025-03-14 16:13:38Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:38Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] Starting process:
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 17427 -o command'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Working directory: '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] Process started with process id 17489, waiting for process exit.
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] Finished process 17489 with exit code 0, and elapsed time 00:00:00.0181181.
+[2025-03-14 16:13:38Z INFO LinuxProcessExtensions] Successfully dump environment variables for 17427
+[2025-03-14 16:13:38Z INFO JobExtension] Inspecting process environment variables. PID: 17428 (mdworker_shared)
+[2025-03-14 16:13:38Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 17428 -o command`
+[2025-03-14 16:13:38Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:38Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] Starting process:
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 17428 -o command'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Working directory: '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] Process started with process id 17490, waiting for process exit.
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] Finished process 17490 with exit code 0, and elapsed time 00:00:00.0178219.
+[2025-03-14 16:13:38Z INFO LinuxProcessExtensions] Successfully dump environment variables for 17428
+[2025-03-14 16:13:38Z INFO JobExtension] Inspecting process environment variables. PID: 17426 (mdworker_shared)
+[2025-03-14 16:13:38Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 17426 -o command`
+[2025-03-14 16:13:38Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:38Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] Starting process:
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 17426 -o command'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Working directory: '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] Process started with process id 17491, waiting for process exit.
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] Finished process 17491 with exit code 0, and elapsed time 00:00:00.0175782.
+[2025-03-14 16:13:38Z INFO LinuxProcessExtensions] Successfully dump environment variables for 17426
+[2025-03-14 16:13:38Z INFO JobExtension] Inspecting process environment variables. PID: 17425 (mdworker_shared)
+[2025-03-14 16:13:38Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 17425 -o command`
+[2025-03-14 16:13:38Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:38Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] Starting process:
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 17425 -o command'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Working directory: '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] Process started with process id 17492, waiting for process exit.
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] Finished process 17492 with exit code 0, and elapsed time 00:00:00.0177727.
+[2025-03-14 16:13:38Z INFO LinuxProcessExtensions] Successfully dump environment variables for 17425
+[2025-03-14 16:13:38Z INFO JobExtension] Inspecting process environment variables. PID: 17423 (mdworker_shared)
+[2025-03-14 16:13:38Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 17423 -o command`
+[2025-03-14 16:13:38Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:38Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] Starting process:
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 17423 -o command'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Working directory: '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] Process started with process id 17493, waiting for process exit.
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] Finished process 17493 with exit code 0, and elapsed time 00:00:00.0183176.
+[2025-03-14 16:13:38Z INFO LinuxProcessExtensions] Successfully dump environment variables for 17423
+[2025-03-14 16:13:38Z INFO JobExtension] Inspecting process environment variables. PID: 17424 (mdworker_shared)
+[2025-03-14 16:13:38Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 17424 -o command`
+[2025-03-14 16:13:38Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:38Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] Starting process:
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 17424 -o command'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Working directory: '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] Process started with process id 17494, waiting for process exit.
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] Finished process 17494 with exit code 0, and elapsed time 00:00:00.0182430.
+[2025-03-14 16:13:38Z INFO LinuxProcessExtensions] Successfully dump environment variables for 17424
+[2025-03-14 16:13:38Z INFO JobExtension] Inspecting process environment variables. PID: 17408 (mdworker_shared)
+[2025-03-14 16:13:38Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 17408 -o command`
+[2025-03-14 16:13:38Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:38Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] Starting process:
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 17408 -o command'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Working directory: '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] Process started with process id 17495, waiting for process exit.
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] Finished process 17495 with exit code 0, and elapsed time 00:00:00.0175788.
+[2025-03-14 16:13:38Z INFO LinuxProcessExtensions] Successfully dump environment variables for 17408
+[2025-03-14 16:13:38Z INFO JobExtension] Inspecting process environment variables. PID: 17376 (biomesyncd)
+[2025-03-14 16:13:38Z INFO LinuxProcessExtensions] Read env from output of `ps e -p 17376 -o command`
+[2025-03-14 16:13:38Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:38Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] Starting process:
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   File name: 'ps'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Arguments: 'e -p 17376 -o command'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Working directory: '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] Process started with process id 17496, waiting for process exit.
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-03-14 16:13:38Z INFO ProcessInvokerWrapper] Finished process 17496 with exit code 0, and elapsed time 00:00:00.0178104.
+[2025-03-14 16:13:38Z INFO LinuxProcessExtensions] Successfully dump environment variables for 17376
+[2025-03-14 16:13:38Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "complete_job",
+  "type": "runner",
+  "stage": "Post",
+  "stepId": "a9fc7bb8-9660-437f-9be6-c01789076521",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 1,
+  "startTime": "2025-03-14T16:13:37.89575Z",
+  "finishTime": "2025-03-14T16:13:38.213449Z"
+}.
+[2025-03-14 16:13:38Z INFO JobRunner] Job result after all job steps finish: Succeeded
+[2025-03-14 16:13:38Z INFO JobRunner] Completing the job execution context.
+[2025-03-14 16:13:38Z INFO JobRunner] Shutting down the job server queue.
+[2025-03-14 16:13:38Z INFO JobServerQueue] Fire signal to shutdown all queues.
+[2025-03-14 16:13:38Z INFO JobServerQueue] Got a step log file to send to results service.
+[2025-03-14 16:13:38Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, /Users/kk/devopsprj/myapp/actions-runner/_diag/blocks/b67c9a9f-de65-451a-8f26-2d8c3ebb0610_01378ea5-23fd-4502-8801-f1f51c90a577.1
+[2025-03-14 16:13:40Z INFO JobServerQueue] Tried to upload 2 file(s) to results, success rate: 2/2.
+[2025-03-14 16:13:41Z INFO JobServerQueue] All queue process task stopped.
+[2025-03-14 16:13:41Z INFO JobServerQueue] Web console line queue drained.
+[2025-03-14 16:13:41Z INFO JobServerQueue] Uploading 3 files in one shot.
+[2025-03-14 16:13:41Z INFO JobServerQueue] Try to upload 3 log files or attachments, success rate: 3/3.
+[2025-03-14 16:13:41Z INFO JobServerQueue] File upload queue drained.
+[2025-03-14 16:13:41Z INFO JobServerQueue] Starting results-based upload queue...
+[2025-03-14 16:13:41Z INFO JobServerQueue] Uploading 2 file(s) in one shot through results service.
+[2025-03-14 16:13:41Z INFO JobServerQueue] Got a step log file to send to results service.
+[2025-03-14 16:13:41Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, /Users/kk/devopsprj/myapp/actions-runner/_diag/blocks/b67c9a9f-de65-451a-8f26-2d8c3ebb0610_a9fc7bb8-9660-437f-9be6-c01789076521.1
+[2025-03-14 16:13:42Z INFO JobServerQueue] Got a job log file to send to results service.
+[2025-03-14 16:13:42Z INFO JobServerQueue] Starting upload of job log file to results service ResultsLog, /Users/kk/devopsprj/myapp/actions-runner/_diag/blocks/b67c9a9f-de65-451a-8f26-2d8c3ebb0610_bfa73004-e538-5d3f-9fe0-af1afeebb78a.1
+[2025-03-14 16:13:43Z INFO JobServerQueue] Tried to upload 2 file(s) to results, success rate: 2/2.
+[2025-03-14 16:13:43Z INFO JobServerQueue] Results upload queue drained.
+[2025-03-14 16:13:43Z INFO JobServerQueue] Timeline update queue drained.
+[2025-03-14 16:13:43Z INFO JobServerQueue] Disposing job server ...
+[2025-03-14 16:13:43Z INFO JobServerQueue] Disposing results server ...
+[2025-03-14 16:13:43Z INFO JobServerQueue] All queue process tasks have been stopped, and all queues are drained.
+[2025-03-14 16:13:43Z INFO TempDirectoryManager] Cleaning runner temp folder: /Users/kk/devopsprj/myapp/actions-runner/_work/_temp
+[2025-03-14 16:13:43Z INFO HostContext] Well known directory 'Bin': '/Users/kk/devopsprj/myapp/actions-runner/bin'
+[2025-03-14 16:13:43Z INFO HostContext] Well known directory 'Root': '/Users/kk/devopsprj/myapp/actions-runner'
+[2025-03-14 16:13:43Z INFO HostContext] Well known directory 'Diag': '/Users/kk/devopsprj/myapp/actions-runner/_diag'
+[2025-03-14 16:13:43Z INFO HostContext] Well known config file 'Telemetry': '/Users/kk/devopsprj/myapp/actions-runner/_diag/.telemetry'
+[2025-03-14 16:13:43Z INFO JobRunner] Raising job completed against run service
+[2025-03-14 16:13:45Z INFO Worker] Job completed.
