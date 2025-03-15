@@ -11,6 +11,9 @@ data:
         type: prometheus
         access: proxy
         url: http://prometheus.monitoring.svc.cluster.local:9090  # Corrected URL
+        isDefault: true
+        jsonData:
+          httpMethod: POST
 
 ---
 apiVersion: apps/v1
