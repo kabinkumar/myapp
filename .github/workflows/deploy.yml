@@ -24,7 +24,6 @@ jobs:
       - name: Debug File Structure
         run: find . -type f
 
-     
       - name: Set up Docker
         run: |
           echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
@@ -46,17 +45,12 @@ jobs:
         uses: azure/setup-kubectl@v3
         with:
           version: 'latest'
+
       - name: Verify Kubeconfig
         run: |
           kubectl config view
           kubectl get nodes
-      # - name: Deploy to Kubernetes
-      #   run: |
-      #     kubectl apply -f ks8_deployment.yml
-      #     echo "Waiting for deployment to be created..."
-      #     sleep 30  # Give Kubernetes time to create the deployment
-      #     kubectl get deployments
-      #     kubectl rollout status deployment myapp || echo "Deployment might still be initializing..."
+
       - name: Deploy ArgoCD Application
         run: |
           kubectl apply -f deployments/argocd-app.yaml
@@ -71,10 +65,23 @@ jobs:
     runs-on: self-hosted
     needs: deploy
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4 
+
+      - name: Update Grafana ConfigMap Checksum
+        run: |
+          CHECKSUM=$(date +%s)  # Generate a timestamp-based checksum
+          sed -i "s/PLACEHOLDER_HASH/$CHECKSUM/g" deployments/grafana.yaml
+          echo "Updated Grafana ConfigMap checksum: $CHECKSUM"
+
       - name: Deploy Prometheus and Grafana
         run: |
           kubectl apply -f deployments/prometheus.yaml
           kubectl apply -f deployments/grafana.yaml
+
+      - name: Sync ArgoCD Monitoring Components
+        run: |
+          argocd app sync myapp || echo "ArgoCD monitoring sync might still be in progress."
 
       - name: Verify Monitoring Services
         run: |
