@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/kabinkumar/myapp.git
     targetRevision: master
-    path: k8s-manifests  # Path inside your repo where Kubernetes YAML files are stored
+    path: .  # Path inside your repo where Kubernetes YAML files are stored
   destination:
     server: https://kubernetes.default.svc
     namespace: default
