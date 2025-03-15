@@ -3,6 +3,8 @@ kind: ConfigMap
 metadata:
   name: grafana-datasource
   namespace: monitoring
+  annotations:
+    checksum/config: {{ .Values.configChecksum | default (randAlphaNum 10) }}  # Forces ArgoCD to detect changes
 data:
   datasources.yaml: |
     apiVersion: 1
@@ -30,6 +32,8 @@ spec:
     metadata:
       labels:
         app: grafana
+      annotations:
+        checksum/config: {{ .Values.configChecksum | default (randAlphaNum 10) }}  # Forces update
     spec:
       containers:
       - name: grafana
@@ -57,7 +61,7 @@ spec:
     - protocol: TCP
       port: 3000
       targetPort: 3000
-  type: NodePort  # Keeping NodePort so you can access it externally
+  type: NodePort  # Keeping NodePort for external access
 
 ---
 apiVersion: apps/v1
