@@ -46,20 +46,37 @@ jobs:
         uses: azure/setup-kubectl@v3
         with:
           version: 'latest'
-      # - name: Create kubeconfig directory
-      #   run: mkdir -p $HOME/.kube
-      # - name: Configure Kubeconfig
-      #   run: |
-      #     echo "${{ secrets.KUBECONFIG }}" | base64 --decode > $HOME/.kube/config
-      #     chmod 600 $HOME/.kube/config
       - name: Verify Kubeconfig
         run: |
           kubectl config view
           kubectl get nodes
-      - name: Deploy to Kubernetes
+      # - name: Deploy to Kubernetes
+      #   run: |
+      #     kubectl apply -f ks8_deployment.yml
+      #     echo "Waiting for deployment to be created..."
+      #     sleep 30  # Give Kubernetes time to create the deployment
+      #     kubectl get deployments
+      #     kubectl rollout status deployment myapp || echo "Deployment might still be initializing..."
+      - name: Deploy ArgoCD Application
         run: |
-          kubectl apply -f ks8_deployment.yml
-          echo "Waiting for deployment to be created..."
-          sleep 30  # Give Kubernetes time to create the deployment
-          kubectl get deployments
-          kubectl rollout status deployment myapp || echo "Deployment might still be initializing..."
+          kubectl apply -f argocd-app.yaml
+          echo "Waiting for ArgoCD to detect changes..."
+          sleep 30  # Allow ArgoCD to register the application
+
+      - name: Sync ArgoCD Application
+        run: |
+          argocd app sync myapp || echo "ArgoCD sync might still be in progress."
+
+  monitoring:
+    runs-on: self-hosted
+    needs: deploy
+    steps:
+      - name: Deploy Prometheus and Grafana
+        run: |
+          kubectl apply -f prometheus.yaml
+          kubectl apply -f grafana.yaml
+
+      - name: Verify Monitoring Services
+        run: |
+          kubectl get pods -n monitoring
+          kubectl get svc -n monitoring
