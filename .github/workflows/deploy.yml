@@ -59,7 +59,7 @@ jobs:
       #     kubectl rollout status deployment myapp || echo "Deployment might still be initializing..."
       - name: Deploy ArgoCD Application
         run: |
-          kubectl apply -f argocd-app.yaml
+          kubectl apply -f deployments/argocd-app.yaml
           echo "Waiting for ArgoCD to detect changes..."
           sleep 30  # Allow ArgoCD to register the application
 
@@ -73,8 +73,8 @@ jobs:
     steps:
       - name: Deploy Prometheus and Grafana
         run: |
-          kubectl apply -f prometheus.yaml
-          kubectl apply -f grafana.yaml
+          kubectl apply -f deployments/prometheus.yaml
+          kubectl apply -f deployments/grafana.yaml
 
       - name: Verify Monitoring Services
         run: |
