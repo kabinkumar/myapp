@@ -58,33 +58,29 @@ jobs:
           echo "Waiting for ArgoCD to detect changes..."
           sleep 30  # Allow ArgoCD to register the application
 
-      - name: Sync ArgoCD Application
+      - name: Sync ArgoCD with Prune
         run: |
-          argocd app sync myapp || echo "ArgoCD sync might still be in progress.: )"
+          argocd app sync myapp --prune --insecure || echo "Sync might still be progressing."
 
-  monitoring:
-    runs-on: self-hosted
-    needs: deploy
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4 
-
-      - name: Update Grafana ConfigMap Checksum
+      - name: Port-forward myapp to localhost:8081
         run: |
-          CHECKSUM=$(date +%s)  # Generate a timestamp-based checksum
-          sed -i "s/PLACEHOLDER_HASH/$CHECKSUM/g" deployments/grafana.yaml
-          echo "Updated Grafana ConfigMap checksum: $CHECKSUM"
+          nohup kubectl port-forward svc/myapp-service 8081:80 --address 0.0.0.0 > /dev/null 2>&1 &
+          echo "myapp exposed at http://localhost:8081"
 
-      - name: Deploy Prometheus and Grafana
+      - name: Deploy Monitoring Stack (Prometheus + Grafana)
         run: |
-          kubectl apply -f deployments/prometheus.yaml
-          kubectl apply -f deployments/grafana.yaml
+          kubectl apply -f deployments/monitoring.yaml
+          echo "Waiting for monitoring stack to be ready..."
+          sleep 30
 
-      - name: Sync ArgoCD Monitoring Components
+      - name: Port-forward Prometheus to localhost:9090
         run: |
-          argocd app sync myapp || echo "ArgoCD monitoring sync might still be in progress."
+          nohup kubectl port-forward svc/prometheus -n monitoring 9090:9090 --address 0.0.0.0 > /dev/null 2>&1 &
+          echo "Prometheus available at http://localhost:9090"
 
-      - name: Verify Monitoring Services
+      - name: Port-forward Grafana to localhost:3000
         run: |
-          kubectl get pods -n monitoring
-          kubectl get svc -n monitoring
+          nohup kubectl port-forward svc/grafana -n monitoring 3000:3000 --address 0.0.0.0 > /dev/null 2>&1 &
+          echo "Grafana available at http://localhost:3000"
+
+  
