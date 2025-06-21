@@ -58,20 +58,20 @@ jobs:
           echo "Waiting for ArgoCD to detect changes..."
           sleep 30  # Allow ArgoCD to register the application
 
-      - name: Sync ArgoCD with Prune
-        run: |
-          argocd app sync myapp --prune --insecure || echo "Sync might still be progressing."
-
-      - name: Port-forward myapp to localhost:8081
-        run: |
-          nohup kubectl port-forward svc/myapp-service 8081:80 --address 0.0.0.0 > /dev/null 2>&1 &
-          echo "myapp exposed at http://localhost:8081"
-
       - name: Deploy Monitoring Stack (Prometheus + Grafana)
         run: |
           kubectl apply -f deployments/monitoring.yaml
           echo "Waiting for monitoring stack to be ready..."
           sleep 30
+
+      - name: Sync ArgoCD with Prune
+        run: |
+          argocd app sync myapp || echo "Sync might still be progressing."
+
+      - name: Port-forward myapp to localhost:8081
+        run: |
+          nohup kubectl port-forward svc/myapp-service 8081:80 --address 0.0.0.0 > /dev/null 2>&1 &
+          echo "myapp exposed at http://localhost:8081"
 
       - name: Port-forward Prometheus to localhost:9090
         run: |
