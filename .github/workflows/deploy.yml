@@ -59,7 +59,7 @@ jobs:
 
       - name: Sync ArgoCD Application
         run: |
-          argocd app sync myapp || echo "ArgoCD sync might still be in progress."
+          argocd app sync myapp || echo "ArgoCD sync might still be in progress.: )"
 
   monitoring:
     runs-on: self-hosted
