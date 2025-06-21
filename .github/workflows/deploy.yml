@@ -64,9 +64,9 @@ jobs:
           echo "Waiting for monitoring stack to be ready..."
           sleep 30
 
-      - name: Sync ArgoCD with Prune
-        run: |
-          argocd app sync myapp || echo "Sync might still be progressing."
+      # - name: Sync ArgoCD with Prune
+      #   run: |
+      #     argocd app sync myapp || echo "Sync might still be progressing."
 
       - name: Port-forward myapp to localhost:8081
         run: |
